@@ -46,4 +46,8 @@ public class StatisticsUtil {
 		StatService.onPageEnd(context, event);
 	}
 
+	public static void onEvent(Context context, String event, String label) {
+		StatService.onEvent(context, event, label);
+	}
+
 }
