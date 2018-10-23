@@ -3,6 +3,7 @@ package com.shizy.template;
 import android.app.Application;
 
 import com.shizy.template.common.constant.ServerHost;
+import com.shizy.template.common.mtj.StatisticsUtil;
 import com.shizy.template.common.utils.ActivityManager;
 import com.shizy.template.common.utils.AppUtil;
 import com.shizy.template.common.utils.NetUtil;
@@ -14,6 +15,7 @@ public class App extends Application {
 	public void onCreate() {
 		super.onCreate();
 		initialize();
+		StatisticsUtil.init(this);
 	}
 
 	private void initialize() {

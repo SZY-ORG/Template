@@ -6,7 +6,44 @@
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
+	
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	
+	<!-- 百度移动统计配置 -->
+	<meta-data
+		android:name="BaiduMobAd_STAT_ID"
+		android:value="283fc0e25d" />
+	<!-- 渠道商编号 -->
+	<meta-data
+		android:name="BaiduMobAd_CHANNEL"
+		android:value="Baidu Market" />
+	
+	<!-- 是否开启错误日志统计，默认为false -->
+	<meta-data
+		android:name="BaiduMobAd_EXCEPTION_LOG"
+		android:value="true" />
+	<!-- 日志发送策略，可选值：APP_START、ONCE_A_DAY、SET_TIME_INTERVAL，默认为APP_START -->
+	<meta-data
+		android:name="BaiduMobAd_SEND_STRATEGY"
+		android:value="APP_START" />
+	<!-- 日志仅在wifi网络下发送，默认为false -->
+	<meta-data
+		android:name="BaiduMobAd_ONLY_WIFI"
+		android:value="true" />
+	<!-- 是否获取基站位置信息 ,默认为true -->
+	<meta-data
+		android:name="BaiduMobAd_CELL_LOCATION"
+		android:value="true" />
+	<!-- 是否获取GPS位置信息，默认为true -->
+	<meta-data
+		android:name="BaiduMobAd_GPS_LOCATION"
+		android:value="true" />
+	<!-- 是否获取WIFI位置信息，默认为true -->
+	<meta-data
+		android:name="BaiduMobAd_WIFI_LOCATION"
+		android:value="true" />
+	
 	<application
 		android:name=".App"
 		android:allowBackup="false"
