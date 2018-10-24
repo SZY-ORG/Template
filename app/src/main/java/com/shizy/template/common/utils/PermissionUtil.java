@@ -1,12 +1,15 @@
 package com.shizy.template.common.utils;
 
 import android.content.pm.PackageManager;
+import android.content.pm.PermissionInfo;
 import android.os.Build;
 import android.support.v4.content.ContextCompat;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+
+import static android.content.pm.PackageManager.GET_META_DATA;
 
 public class PermissionUtil {
 
@@ -59,5 +62,23 @@ public class PermissionUtil {
 				== ContextCompat.checkSelfPermission(AppUtil.getContext(), permission);
 	}
 
+	public static boolean isRuntime(String permission) {
+		PermissionInfo permissionInfo = getPermissionInfo(permission);
+		if (permissionInfo != null) {
+			return (permissionInfo.protectionLevel & PermissionInfo.PROTECTION_MASK_BASE)
+					== PermissionInfo.PROTECTION_DANGEROUS;
+		}
+		return false;
+	}
+
+	public static PermissionInfo getPermissionInfo(String permission) {
+		PackageManager pm = AppUtil.getContext().getPackageManager();
+		try {
+			return pm.getPermissionInfo(permission, GET_META_DATA);
+		} catch (PackageManager.NameNotFoundException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 }
