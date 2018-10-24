@@ -28,11 +28,11 @@ public class ScreenUtil {
 	}
 
 	public static void showToast(CharSequence text) {
-		Toast.makeText(AppUtil.getContext(), text, Toast.LENGTH_SHORT);
+		Toast.makeText(AppUtil.getContext(), text, Toast.LENGTH_SHORT).show();
 	}
 
 	public static void showToast(@StringRes int resId) {
-		Toast.makeText(AppUtil.getContext(), resId, Toast.LENGTH_SHORT);
+		Toast.makeText(AppUtil.getContext(), resId, Toast.LENGTH_SHORT).show();
 	}
 
 	public static int screenWidth() {
