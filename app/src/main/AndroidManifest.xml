@@ -10,8 +10,9 @@
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 	
+	
 	<application
-		android:name=".App"
+		android:name=".app.App"
 		android:allowBackup="false"
 		android:icon="@mipmap/ic_launcher"
 		android:label="@string/app_name"
@@ -52,6 +53,17 @@
 		<meta-data
 			android:name="BaiduMobAd_WIFI_LOCATION"
 			android:value="true" />
+		
+		<!--bugly 重要！！！applicationId改为包名-->
+		<provider
+			android:name="android.support.v4.content.FileProvider"
+			android:authorities="com.shizy.template.fileProvider"
+			android:exported="false"
+			android:grantUriPermissions="true">
+			<meta-data
+				android:name="android.support.FILE_PROVIDER_PATHS"
+				android:resource="@xml/provider_paths"/>
+		</provider>
 		
 		<activity
 			android:name=".components.main.ui.LauncherActivity"
