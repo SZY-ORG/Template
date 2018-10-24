@@ -10,14 +10,15 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.shizy.template.R;
+import com.shizy.template.common.utils.LogUtil;
 import com.shizy.template.common.utils.NetUtil;
 import com.shizy.template.common.utils.PermissionUtil;
 import com.shizy.template.common.view.activity.BaseActivity;
 import com.shizy.template.net.RetrofitHelper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class LauncherActivity extends BaseActivity {
 
@@ -35,6 +36,11 @@ public class LauncherActivity extends BaseActivity {
 
 	@Override
 	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+		for (int i = 0; i < permissions.length; i++) {
+			LogUtil.d("---------");
+			LogUtil.d("---------" + permissions[i] + ":" + grantResults[i]);
+			LogUtil.d("---------");
+		}
 		for (int result : grantResults) {
 			if (result != PackageManager.PERMISSION_GRANTED) {
 				showPermissionDeniedDialog();
