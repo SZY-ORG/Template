@@ -1,9 +1,22 @@
 package com.shizy.template.components.personalcenter;
 
-import com.shizy.template.common.view.fragment.BaseFragment;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 
-public class PersonalFragment extends BaseFragment {
+import com.shizy.template.R;
+import com.shizy.template.common.view.fragment.BaseTitleFragment;
 
+public class PersonalFragment extends BaseTitleFragment {
 
+	@Override
+	protected int getLayoutId() {
+		return R.layout.fragment_personal;
+	}
+
+	@Override
+	public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+		super.onActivityCreated(savedInstanceState);
+		setTitle(R.string.personal_center);
+	}
 
 }

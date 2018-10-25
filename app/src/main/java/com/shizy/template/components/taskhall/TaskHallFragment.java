@@ -1,9 +1,22 @@
 package com.shizy.template.components.taskhall;
 
-import com.shizy.template.common.view.fragment.BaseFragment;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 
-public class TaskHallFragment extends BaseFragment {
+import com.shizy.template.R;
+import com.shizy.template.common.view.fragment.BaseTitleFragment;
 
+public class TaskHallFragment extends BaseTitleFragment {
 
+	@Override
+	protected int getLayoutId() {
+		return R.layout.fragment_task_hall;
+	}
+
+	@Override
+	public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+		super.onActivityCreated(savedInstanceState);
+		setTitle(R.string.task_hall);
+	}
 
 }
