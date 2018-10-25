@@ -88,6 +88,42 @@
 		<activity
 			android:name=".components.web.WebViewActivity"
 			android:screenOrientation="portrait" />
+		<activity
+			android:name=".components.personalcenter.finance.CapitalFlowListActivity"
+			android:screenOrientation="portrait" />
+		<activity
+			android:name=".components.personalcenter.finance.WithdrawActivity"
+			android:screenOrientation="portrait" />
+		<activity
+			android:name=".components.personalcenter.finance.WithdrawHistoryListActivity"
+			android:screenOrientation="portrait" />
+		<activity
+			android:name=".components.personalcenter.personalinfo.BankcardInfoActivity"
+			android:screenOrientation="portrait" />
+		<activity
+			android:name=".components.personalcenter.AboutUsActivity"
+			android:screenOrientation="portrait" />
+		<activity
+			android:name=".components.personalcenter.DepositActivity"
+			android:screenOrientation="portrait" />
+		<activity
+			android:name=".components.personalcenter.PersonalInfoActivity"
+			android:screenOrientation="portrait" />
+		<activity
+			android:name=".components.taskhall.BidConfirmActivity"
+			android:screenOrientation="portrait" />
+		<activity
+			android:name=".components.taskhall.BidHistoryListActivity"
+			android:screenOrientation="portrait" />
+		<activity
+			android:name=".components.taskhall.TaskDetailActivity"
+			android:screenOrientation="portrait" />
+		<activity
+			android:name=".components.workbench.ReceiptInfoActivity"
+			android:screenOrientation="portrait" />
+		<activity
+			android:name=".components.workbench.UploadReceiptActivity"
+			android:screenOrientation="portrait" />
 
 		<service
 			android:name=".service.RebootService"
