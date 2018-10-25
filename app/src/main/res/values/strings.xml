@@ -32,5 +32,22 @@
 	<string name="error_mobile_format">手机号格式错误</string>
 	<string name="error_password_empty">密码不能为空</string>
 	<string name="error_password_invalid">密码格式错误</string>
+	
+	<string name="about">关于</string>
+	<string name="bankcard">银行卡</string>
+	<string name="work_bench">每日出车</string>
+	<string name="task_list">任务列表</string>
+	<string name="task_detail">任务详情</string>
+	<string name="bid_confirm">抢单确认</string>
+	<string name="bid_history_list">接单历史列表</string>
+	<string name="work_list">出车列表</string>
+	<string name="upload_receipt">上传回单</string>
+	<string name="receipt_info">回单信息</string>
+	<string name="personal_info">个人信息列表</string>
+	<string name="finance_info">财务信息</string>
+	<string name="capital_flow">流水列表</string>
+	<string name="withdraw">提现</string>
+	<string name="withdraw_history_list">提现历史记录</string>
+	<string name="deposit">押金</string>
 
 </resources>

@@ -97,6 +97,9 @@
 			android:name=".components.personalcenter.personalinfo.BankcardInfoActivity"
 			android:screenOrientation="portrait" />
 		<activity
+			android:name=".components.personalcenter.FinanceInfoActivity"
+			android:screenOrientation="portrait" />
+		<activity
 			android:name=".components.personalcenter.AboutUsActivity"
 			android:screenOrientation="portrait" />
 		<activity

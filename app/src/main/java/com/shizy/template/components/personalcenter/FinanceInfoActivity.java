@@ -1,4 +1,4 @@
-package com.shizy.template.components.taskhall;
+package com.shizy.template.components.personalcenter;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,22 +8,22 @@ import com.shizy.template.common.view.activity.BaseTitleActivity;
 
 /**
  * description
- * 接单/抢单确认页
+ * 财务信息
  *
  * @author dahu
- * time 2018/10/25 10:41.
+ * time 2018/10/25 15:01.
  */
-public class BidConfirmActivity extends BaseTitleActivity {
+public class FinanceInfoActivity extends BaseTitleActivity {
 
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_bid_confirm);
+		setContentView(R.layout.activity_finance_info);
 		initView();
 	}
 
 	private void initView() {
-		setTitle(R.string.bid_confirm);
+		setTitle(R.string.finance_info);
 		setRightText(R.string.ok);
 
 	}
@@ -33,4 +33,5 @@ public class BidConfirmActivity extends BaseTitleActivity {
 
 		super.onClickTitleLeft();
 	}
+
 }

@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.shizy.template.R;
-import com.shizy.template.common.utils.AppUtil;
 import com.shizy.template.common.view.activity.BaseTitleActivity;
 
 /**
@@ -24,7 +23,7 @@ public class BidHistoryListActivity extends BaseTitleActivity {
 	}
 
 	private void initView() {
-		setTitle(AppUtil.getVersionName());
+		setTitle(R.string.bid_history_list);
 		setRightText(R.string.ok);
 
 	}
