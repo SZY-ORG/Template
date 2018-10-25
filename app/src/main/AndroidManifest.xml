@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 	package="com.shizy.template">
 
@@ -6,11 +7,9 @@
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-	
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-	
-	
+
 	<application
 		android:name=".app.App"
 		android:allowBackup="false"
@@ -19,7 +18,7 @@
 		android:roundIcon="@mipmap/ic_launcher_round"
 		android:supportsRtl="true"
 		android:theme="@style/AppTheme.NoActionBar">
-		
+
 		<!-- 百度移动统计配置 -->
 		<meta-data
 			android:name="BaiduMobAd_STAT_ID"
@@ -28,7 +27,7 @@
 		<meta-data
 			android:name="BaiduMobAd_CHANNEL"
 			android:value="Baidu Market" />
-		
+
 		<!-- 是否开启错误日志统计，默认为false -->
 		<meta-data
 			android:name="BaiduMobAd_EXCEPTION_LOG"
@@ -53,8 +52,8 @@
 		<meta-data
 			android:name="BaiduMobAd_WIFI_LOCATION"
 			android:value="true" />
-		
-		<!--bugly 重要！！！applicationId改为包名-->
+
+		<!-- bugly 重要！！！applicationId改为包名 -->
 		<provider
 			android:name="android.support.v4.content.FileProvider"
 			android:authorities="com.shizy.template.fileProvider"
@@ -62,9 +61,9 @@
 			android:grantUriPermissions="true">
 			<meta-data
 				android:name="android.support.FILE_PROVIDER_PATHS"
-				android:resource="@xml/provider_paths"/>
+				android:resource="@xml/provider_paths" />
 		</provider>
-		
+
 		<activity
 			android:name=".components.main.ui.LauncherActivity"
 			android:screenOrientation="portrait"
@@ -75,16 +74,13 @@
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 		</activity>
-
 		<activity
 			android:name=".components.main.ui.MainActivity"
 			android:launchMode="singleTask"
 			android:screenOrientation="portrait" />
-
 		<activity
 			android:name=".components.main.ui.DebugActivity"
 			android:screenOrientation="portrait" />
-
 		<activity
 			android:name=".components.web.WebViewActivity"
 			android:screenOrientation="portrait" />
@@ -124,10 +120,14 @@
 		<activity
 			android:name=".components.workbench.UploadReceiptActivity"
 			android:screenOrientation="portrait" />
+		<activity
+			android:name=".components.account.ui.LoginActivity"
+			android:screenOrientation="portrait" />
 
 		<service
 			android:name=".service.RebootService"
 			android:exported="false"
 			android:process=":reboot" />
 	</application>
+
 </manifest>

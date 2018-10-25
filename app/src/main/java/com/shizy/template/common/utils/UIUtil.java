@@ -29,6 +29,14 @@ public class UIUtil {
 		}
 	}
 
+	public static boolean isVisible(View view) {
+		return view != null && view.getVisibility() == View.VISIBLE;
+	}
+
+	public static boolean isGone(View view) {
+		return view != null && view.getVisibility() == View.GONE;
+	}
+
 	/**
 	 * 隐藏键盘
 	 *

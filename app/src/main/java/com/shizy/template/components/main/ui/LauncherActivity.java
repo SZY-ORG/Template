@@ -14,6 +14,7 @@ import com.shizy.template.R;
 import com.shizy.template.common.utils.NetUtil;
 import com.shizy.template.common.utils.PermissionUtil;
 import com.shizy.template.common.view.activity.BaseActivity;
+import com.shizy.template.components.account.ui.LoginActivity;
 import com.shizy.template.net.RetrofitHelper;
 
 import java.util.ArrayList;
@@ -23,11 +24,10 @@ public class LauncherActivity extends BaseActivity {
 
 	private static final int RC_PERMISSION = 1;
 
-	private Runnable mToMain = new Runnable() {
+	private Runnable mEnterApp = new Runnable() {
 		@Override
 		public void run() {
-			startActivity(new Intent(LauncherActivity.this, MainActivity.class));
-			finish();
+			toLogin();
 		}
 	};
 
@@ -69,13 +69,23 @@ public class LauncherActivity extends BaseActivity {
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		mHandler.removeCallbacks(mToMain);
+		mHandler.removeCallbacks(mEnterApp);
 	}
 
 	private void allPermissionGranted() {
 		RetrofitHelper.getInstance().addHeaders(NetUtil.getHeaders());
 
-		mHandler.postDelayed(mToMain, 2000);
+		mHandler.postDelayed(mEnterApp, 2000);
+	}
+
+	private void toMain() {
+		startActivity(new Intent(LauncherActivity.this, MainActivity.class));
+		finish();
+	}
+
+	private void toLogin() {
+		startActivity(new Intent(LauncherActivity.this, LoginActivity.class));
+		finish();
 	}
 
 	private void showPermissionDeniedDialog() {
