@@ -4,6 +4,7 @@
 	<string name="load_finished">加载完成</string>
 	<string name="permission_denied">应用缺少必要的权限，无法使用！</string>
 	<string name="modify_server_address">修改服务器地址需要重启APP，是否继续？</string>
+	<string name="msg_exit_app">再按一次退出APP！</string>
 
 	<string name="task_hall">接单大厅</string>
 	<string name="workbench">每日出车</string>
@@ -32,7 +33,13 @@
 	<string name="error_mobile_format">手机号格式错误</string>
 	<string name="error_password_empty">密码不能为空</string>
 	<string name="error_password_invalid">密码格式错误</string>
-	
+
+	<string name="login_sign_up">没有帐号，去注册</string>
+	<string name="name">姓名</string>
+	<string name="repeat_password_hint">再次输入密码</string>
+	<string name="error_name_empty">姓名不能为空</string>
+	<string name="error_repeat_password">两次输入密码不一致</string>
+
 	<string name="about">关于</string>
 	<string name="bankcard">银行卡</string>
 	<string name="work_bench">每日出车</string>

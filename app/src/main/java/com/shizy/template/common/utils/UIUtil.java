@@ -1,12 +1,22 @@
 package com.shizy.template.common.utils;
 
 import android.content.Context;
+import android.support.annotation.StringRes;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Toast;
 
 public class UIUtil {
 
 	private UIUtil() {
+	}
+
+	public static void showToast(CharSequence text) {
+		Toast.makeText(AppUtil.getContext(), text, Toast.LENGTH_SHORT).show();
+	}
+
+	public static void showToast(@StringRes int resId) {
+		Toast.makeText(AppUtil.getContext(), resId, Toast.LENGTH_SHORT).show();
 	}
 
 	public static void setVisible(View... views) {

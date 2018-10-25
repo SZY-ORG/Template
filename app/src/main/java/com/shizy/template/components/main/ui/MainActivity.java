@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
 import com.shizy.template.R;
+import com.shizy.template.common.utils.UIUtil;
 import com.shizy.template.common.view.activity.BaseActivity;
 import com.shizy.template.components.main.bean.TabEntity;
 import com.shizy.template.components.personalcenter.PersonalFragment;
@@ -19,6 +20,7 @@ import butterknife.BindView;
 public class MainActivity extends BaseActivity {
 
 	private static final String KEY_TAB_INDEX = "main_tab_index";
+	private static final long EXIT_INTERVAL = 2000;
 
 	private static final int[] IDS_TITLE = {R.string.task_hall, R.string.workbench, R.string.personal_center};
 	private static final int[] IDS_ICON_NORMAL = {R.drawable.tab_task_hall_n, R.drawable.tab_workbench_n, R.drawable.tab_personal_center_n};
@@ -28,6 +30,18 @@ public class MainActivity extends BaseActivity {
 	protected CommonTabLayout mTabLayout;
 
 	private ArrayList<Fragment> mFragmentList = new ArrayList<>();
+
+	private long mLastBackTime;
+
+	@Override
+	public void onBackPressed() {
+		if (System.currentTimeMillis() - mLastBackTime > EXIT_INTERVAL) {
+			UIUtil.showToast(R.string.msg_exit_app);
+			mLastBackTime = System.currentTimeMillis();
+		} else {
+			super.onBackPressed();
+		}
+	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

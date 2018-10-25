@@ -1,10 +1,8 @@
 package com.shizy.template.common.utils;
 
 import android.content.Context;
-import android.support.annotation.StringRes;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
-import android.widget.Toast;
 
 public class ScreenUtil {
 
@@ -25,14 +23,6 @@ public class ScreenUtil {
 		screenWidth = dm.widthPixels;
 		screenHeight = dm.heightPixels;
 		density = dm.density;
-	}
-
-	public static void showToast(CharSequence text) {
-		Toast.makeText(AppUtil.getContext(), text, Toast.LENGTH_SHORT).show();
-	}
-
-	public static void showToast(@StringRes int resId) {
-		Toast.makeText(AppUtil.getContext(), resId, Toast.LENGTH_SHORT).show();
 	}
 
 	public static int screenWidth() {

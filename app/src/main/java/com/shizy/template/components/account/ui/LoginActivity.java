@@ -21,7 +21,6 @@ import com.shizy.template.net.ResponseException;
 import com.shizy.template.net.ServiceFactory;
 import com.shizy.template.net.progress.ProgressDialogObserver;
 import com.shizy.template.net.response.ResponseData;
-import com.shizy.template.net.response.ResponseObserver;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -32,6 +31,8 @@ import butterknife.OnEditorAction;
  */
 public class LoginActivity extends BaseActivity {
 
+	private static final int RC_SIGN_UP = 0x1;
+
 	@BindView(R.id.mobile)
 	protected EditText mMobileEdit;
 	@BindView(R.id.password)
@@ -40,6 +41,14 @@ public class LoginActivity extends BaseActivity {
 	protected View mLoginFormView;
 
 	private boolean isRequesting = false;
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if (resultCode == RESULT_OK) {
+			toMain();
+		}
+	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -56,10 +65,18 @@ public class LoginActivity extends BaseActivity {
 		return false;
 	}
 
-	@OnClick(R.id.btn_login)
+	@OnClick({R.id.btn_login, R.id.tv_sign_up})
 	protected void onClick(View view) {
-		if (ClickUtil.isValid()) {
-			attemptLogin();
+		if (!ClickUtil.isValid()) {
+			return;
+		}
+		switch (view.getId()) {
+			case R.id.btn_login:
+				attemptLogin();
+				break;
+			case R.id.tv_sign_up:
+				toSignUp();
+				break;
 		}
 	}
 
@@ -117,6 +134,10 @@ public class LoginActivity extends BaseActivity {
 	private void toMain() {
 		startActivity(new Intent(LoginActivity.this, MainActivity.class));
 		finish();
+	}
+
+	private void toSignUp() {
+		startActivityForResult(new Intent(LoginActivity.this, SignUpActivity.class), RC_SIGN_UP);
 	}
 
 	private void login(String mobile, String password) {

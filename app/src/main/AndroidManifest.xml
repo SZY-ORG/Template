@@ -125,9 +125,11 @@
 			android:screenOrientation="portrait" />
 		<activity
 			android:name=".components.account.ui.LoginActivity"
+			android:windowSoftInputMode="stateAlwaysHidden"
 			android:screenOrientation="portrait" />
 		<activity
 			android:name=".components.account.ui.SignUpActivity"
+			android:windowSoftInputMode="stateAlwaysHidden"
 			android:screenOrientation="portrait" />
 
 		<service
