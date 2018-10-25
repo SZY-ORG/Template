@@ -123,6 +123,9 @@
 		<activity
 			android:name=".components.account.ui.LoginActivity"
 			android:screenOrientation="portrait" />
+		<activity
+			android:name=".components.account.ui.SignUpActivity"
+			android:screenOrientation="portrait" />
 
 		<service
 			android:name=".service.RebootService"
