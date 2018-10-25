@@ -1,20 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
+	android:gravity="bottom"
 	android:orientation="vertical">
 
-	<include layout="@layout/common_title" />
-
-	<com.shizy.template.common.widget.RefreshLayout
-		android:id="@+id/layout_ptr"
+	<com.flyco.tablayout.CommonTabLayout xmlns:tl="http://schemas.android.com/apk/res-auto"
+		android:id="@+id/layout_tab"
 		android:layout_width="match_parent"
-		android:layout_height="match_parent">
+		android:layout_height="54dp"
+		android:layout_alignParentBottom="true"
+		android:background="#ffffff"
+		tl:tl_iconHeight="32dp"
+		tl:tl_iconWidth="32dp"
+		tl:tl_indicator_color="#1296DB"
+		tl:tl_indicator_height="0dp"
+		tl:tl_textSelectColor="#1296DB"
+		tl:tl_textUnselectColor="#707070"
+		tl:tl_textsize="12sp"
+		tl:tl_underline_color="#DDDDDD"
+		tl:tl_underline_height="1dp" />
 
-		<ListView
-			android:id="@+id/list_view"
-			android:layout_width="match_parent"
-			android:layout_height="match_parent" />
-
-	</com.shizy.template.common.widget.RefreshLayout>
-</LinearLayout>
+	<FrameLayout
+		android:id="@+id/layout_container"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_above="@+id/layout_tab" />
+</RelativeLayout>

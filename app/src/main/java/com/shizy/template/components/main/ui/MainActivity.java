@@ -1,139 +1,67 @@
 package com.shizy.template.components.main.ui;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Environment;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
+import android.support.v4.app.Fragment;
 
-import java.io.File;
-import java.util.List;
+import com.flyco.tablayout.CommonTabLayout;
+import com.flyco.tablayout.listener.CustomTabEntity;
+import com.shizy.template.R;
+import com.shizy.template.common.view.activity.BaseActivity;
+import com.shizy.template.components.main.bean.TabEntity;
+import com.shizy.template.components.personalcenter.PersonalFragment;
+import com.shizy.template.components.taskhall.TaskHallFragment;
+import com.shizy.template.components.workbench.WorkbenchFragment;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
-import butterknife.OnItemClick;
-import com.shizy.template.R;
-import com.shizy.template.common.utils.LogUtil;
-import com.shizy.template.common.utils.RxJavaUtil;
-import com.shizy.template.common.utils.ToastUtil;
-import com.shizy.template.common.view.activity.BaseTitleActivity;
-import com.shizy.template.components.main.api.IDownloadService;
-import com.shizy.template.components.main.api.IMainService;
-import com.shizy.template.net.RetrofitHelper;
-import com.shizy.template.net.progress.ProgressDialogObserver;
-import com.shizy.template.net.response.FileObserver;
-import com.shizy.template.net.response.ResponseData;
-import in.srain.cube.views.ptr.PtrDefaultHandler2;
-import in.srain.cube.views.ptr.PtrFrameLayout;
-import okhttp3.ResponseBody;
 
-public class MainActivity extends BaseTitleActivity {
+public class MainActivity extends BaseActivity {
 
-	private static final String TAG = MainActivity.class.getSimpleName();
+	private static final String KEY_TAB_INDEX = "main_tab_index";
 
-	private PtrDefaultHandler2 mPtrHandler = new PtrDefaultHandler2() {
-		@Override
-		public void onLoadMoreBegin(PtrFrameLayout frame) {
-			loadData(mPage + 1);
-		}
+	private static final int[] IDS_TITLE = {R.string.task_hall, R.string.workbench, R.string.personal_center};
+	private static final int[] IDS_ICON_NORMAL = {R.drawable.tab_task_hall_n, R.drawable.tab_workbench_n, R.drawable.tab_personal_center_n};
+	private static final int[] IDS_ICON_SELECTED = {R.drawable.tab_task_hall_s, R.drawable.tab_workbench_s, R.drawable.tab_personal_center_s};
 
-		@Override
-		public void onRefreshBegin(PtrFrameLayout frame) {
-			loadData(1);
-		}
-	};
+	@BindView(R.id.layout_tab)
+	protected CommonTabLayout mTabLayout;
 
-	@BindView(R.id.layout_ptr)
-	protected PtrFrameLayout mPtrLayout;
-	@BindView(R.id.list_view)
-	protected ListView mListView;
-
-	private MainAdapter mAdapter;
-	private int mPage;
-	private boolean downloading = false;
+	private ArrayList<Fragment> mFragmentList = new ArrayList<>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		setTitle(R.string.app_name);
-		setLeftText(R.string.download);
-		setRightText("DEBUG");
+		initTabs();
 
-		mPtrLayout.setMode(PtrFrameLayout.Mode.BOTH);
-		mPtrLayout.setPtrHandler(mPtrHandler);
-
-		mAdapter = new MainAdapter(this);
-		mListView.setAdapter(mAdapter);
-
-		loadData(1);
-	}
-
-	@OnItemClick(R.id.list_view)
-	protected void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-		startActivity(new Intent(this, DebugActivity.class));
-	}
-
-	@Override
-	protected void onClickTitleLeft() {
-		downloadFile();
-	}
-
-	@Override
-	protected void onClickTitleRight() {
-		startActivity(new Intent(this, DebugActivity.class));
-	}
-
-	private void loadData(final int page) {
-		IMainService service = RetrofitHelper.getInstance().createService(IMainService.class);
-
-		service.listItem()
-				.compose(RxJavaUtil.<ResponseData<List<String>>>mainSchedulers())
-				.as(this.<ResponseData<List<String>>>bindLifecycle())
-				.subscribe(new ProgressDialogObserver<List<String>>(this) {
-					@Override
-					protected void onSuccess(ResponseData<List<String>> responseData) {
-						ToastUtil.showShort(R.string.load_finished);
-						mPage = page;
-						if (page == 1) {
-							mAdapter.clear();
-						}
-						mAdapter.addAll(responseData.getData());
-					}
-
-					@Override
-					protected void onFinally() {
-						super.onFinally();
-						LogUtil.d("onFinally");
-						mPtrLayout.refreshComplete();
-					}
-				});
-	}
-
-	private void downloadFile() {
-		if (downloading) {
-			return;
+		int tabIndex = 0;
+		if (savedInstanceState != null) {
+			tabIndex = savedInstanceState.getInt(KEY_TAB_INDEX);
 		}
-		downloading = true;
+		mTabLayout.setCurrentTab(tabIndex);
+	}
 
-		final String localPath = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), "SaasDemo.zip").getAbsolutePath();
-		final String fileUrl = "http://192.168.200.143:8080/jiagu/captain_v2.1.0_2018-08-15.zip";
-		IDownloadService service = RetrofitHelper.getInstance().createService(IDownloadService.class);
-		service.downloadFile(fileUrl)
-				.compose(RxJavaUtil.<ResponseBody>ioSchedulers())
-				.as(this.<ResponseBody>bindLifecycle())
-				.subscribe(new FileObserver(localPath) {
-					@Override
-					protected void onSuccess() {
-						ToastUtil.showShort("下载完成！");
-					}
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
+		outState.putInt(KEY_TAB_INDEX, mTabLayout.getCurrentTab());
+	}
 
-					@Override
-					protected void onFinally() {
-						downloading = false;
-					}
-				});
+	private void initTabs() {
+		mFragmentList.add(new TaskHallFragment());
+		mFragmentList.add(new WorkbenchFragment());
+		mFragmentList.add(new PersonalFragment());
+		mTabLayout.setTabData(getTabData(), this, R.id.layout_container, mFragmentList);
+	}
+
+	private ArrayList<CustomTabEntity> getTabData() {
+		ArrayList<CustomTabEntity> list = new ArrayList<>();
+		for (int i = 0; i < IDS_TITLE.length; i++) {
+			list.add(new TabEntity(getString(IDS_TITLE[i]), IDS_ICON_SELECTED[i], IDS_ICON_NORMAL[i]));
+		}
+		return list;
 	}
 
 }
