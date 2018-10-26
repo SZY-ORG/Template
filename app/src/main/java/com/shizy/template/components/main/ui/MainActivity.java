@@ -10,7 +10,7 @@ import com.shizy.template.common.utils.UIUtil;
 import com.shizy.template.common.view.activity.BaseActivity;
 import com.shizy.template.components.main.bean.TabEntity;
 import com.shizy.template.components.personalcenter.PersonalFragment;
-import com.shizy.template.components.taskhall.TaskHallFragment;
+import com.shizy.template.components.taskhall.ui.TaskHallFragment;
 import com.shizy.template.components.workbench.WorkbenchFragment;
 
 import java.util.ArrayList;

@@ -27,7 +27,7 @@ android {
 			}
 		}
 		release {
-			minifyEnabled false
+			minifyEnabled true
 			proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 			proguardFiles file('./proguard').listFiles()
 		}
@@ -77,4 +77,5 @@ dependencies {
 	implementation 'com.tencent.tinker:tinker-android-lib:1.9.6'
 
 	implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+	implementation 'com.jcodecraeer:xrecyclerview:1.5.9'
 }
