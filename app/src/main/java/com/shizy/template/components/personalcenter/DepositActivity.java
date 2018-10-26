@@ -24,7 +24,6 @@ public class DepositActivity extends BaseTitleActivity {
 
 	private void initView() {
 		setTitle(R.string.deposit);
-		setRightText(R.string.ok);
 
 	}
 

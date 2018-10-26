@@ -24,7 +24,6 @@ public class AboutUsActivity extends BaseTitleActivity {
 
 	private void initView() {
 		setTitle(R.string.about);
-		setRightText(R.string.ok);
 
 	}
 

@@ -24,7 +24,6 @@ public class PersonalInfoActivity extends BaseTitleActivity {
 
 	private void initView() {
 		setTitle(R.string.personal_info);
-		setRightText(R.string.ok);
 
 	}
 

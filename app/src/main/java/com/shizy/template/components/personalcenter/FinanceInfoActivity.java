@@ -24,7 +24,6 @@ public class FinanceInfoActivity extends BaseTitleActivity {
 
 	private void initView() {
 		setTitle(R.string.finance_info);
-		setRightText(R.string.ok);
 
 	}
 
