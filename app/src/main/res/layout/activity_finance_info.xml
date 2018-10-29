@@ -1,9 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent">
 	
-	<include layout="@layout/common_title" />
+	<include android:id="@+id/title_view"
+		layout="@layout/common_title" />
 	
+	<Button android:id="@+id/capital_flow"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/capital_flow"
+		app:layout_constraintTop_toBottomOf="@id/title_view" />
+	
+	<Button android:id="@+id/withdraw"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/withdraw"
+		app:layout_constraintTop_toBottomOf="@id/capital_flow" />
+	
+	<Button android:id="@+id/withdraw_history_list"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/withdraw_history_list"
+		app:layout_constraintTop_toBottomOf="@id/withdraw" />
+
 </android.support.constraint.ConstraintLayout>
