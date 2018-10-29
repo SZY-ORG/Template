@@ -2,6 +2,7 @@ package com.shizy.template.common.view.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.DrawableRes;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.view.View;
@@ -25,8 +26,8 @@ public abstract class BaseTitleFragment extends BaseFragment {
 	protected TextView mTitleRightTv;
 
 	@Override
-	public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-		super.onActivityCreated(savedInstanceState);
+	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+		super.onViewCreated(view, savedInstanceState);
 		setLeftImage(0);
 	}
 
