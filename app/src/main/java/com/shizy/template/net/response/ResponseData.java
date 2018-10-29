@@ -17,7 +17,6 @@ public class ResponseData<T> {
 
 	private int code;
 	private String msg;
-	@SerializedName("info")
 	private T data;
 
 	public int getCode() {

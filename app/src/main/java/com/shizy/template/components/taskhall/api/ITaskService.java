@@ -10,7 +10,7 @@ import retrofit2.http.Query;
 
 public interface ITaskService {
 
-	@GET("api/list.json")
+	@GET("api/task/list.json")
 	Observable<ResponseData<Pagination<Task>>> getTaskList(@Query("page") int page,
 														   @Query("timestamp") String timestamp);
 

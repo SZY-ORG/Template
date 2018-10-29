@@ -26,7 +26,7 @@ public class TaskHallFragment extends BaseTitleFragment {
 	private XRecyclerView.LoadingListener mLoadingListener = new XRecyclerView.LoadingListener() {
 		@Override
 		public void onRefresh() {
-			loadData(mPage);
+			loadData(1);
 		}
 
 		@Override
@@ -80,7 +80,7 @@ public class TaskHallFragment extends BaseTitleFragment {
 				.subscribe(new ResponseObserver<Pagination<Task>>() {
 					@Override
 					protected void onSuccess(ResponseData<Pagination<Task>> responseData) {
-						Pagination pagination = responseData.getData();
+						Pagination<Task> pagination = responseData.getData();
 						mPage = pagination.getPage();
 						List<Task> list = pagination.getList();
 						if (mPage == 1) {
