@@ -115,7 +115,7 @@
 			android:name=".components.taskhall.BidHistoryListActivity"
 			android:screenOrientation="portrait" />
 		<activity
-			android:name=".components.taskhall.TaskDetailActivity"
+			android:name=".components.taskhall.ui.TaskDetailActivity"
 			android:screenOrientation="portrait" />
 		<activity
 			android:name=".components.workbench.ReceiptInfoActivity"
