@@ -1,7 +1,9 @@
 package com.shizy.template.components.taskhall.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.View;
 
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.shizy.template.R;
@@ -9,6 +11,7 @@ import com.shizy.template.common.bean.Pagination;
 import com.shizy.template.common.utils.RecyclerViewUtil;
 import com.shizy.template.common.utils.RxJavaUtil;
 import com.shizy.template.common.utils.UIUtil;
+import com.shizy.template.common.view.adapter.recyclerview.BaseAdapter;
 import com.shizy.template.common.view.fragment.BaseTitleFragment;
 import com.shizy.template.components.taskhall.api.ITaskService;
 import com.shizy.template.components.taskhall.bean.Task;
@@ -32,6 +35,17 @@ public class TaskHallFragment extends BaseTitleFragment {
 		@Override
 		public void onLoadMore() {
 			loadData(mPage + 1);
+		}
+	};
+
+	private BaseAdapter.OnItemClickListener mOnItemClickListener = new BaseAdapter.OnItemClickListener() {
+		@Override
+		public void onItemClick(View view, int position) {
+			Task task = mAdapter.getItem(position);
+			if (task != null) {
+				Intent intent = new Intent(getActivity(), TaskDetailActivity.class);
+				startActivity(intent);
+			}
 		}
 	};
 
@@ -69,6 +83,7 @@ public class TaskHallFragment extends BaseTitleFragment {
 		RecyclerViewUtil.configLVRecyclerView(getActivity(), mRecyclerView);
 		mRecyclerView.setLoadingListener(mLoadingListener);
 		mAdapter = new TaskHallAdapter(getActivity());
+		mAdapter.setOnItemClickListener(mOnItemClickListener);
 		mRecyclerView.setAdapter(mAdapter);
 	}
 

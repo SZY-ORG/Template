@@ -7,8 +7,9 @@ import butterknife.ButterKnife;
 
 public abstract class BaseViewHolder<T> extends RecyclerView.ViewHolder {
 
-	public BaseViewHolder(View itemView) {
+	public BaseViewHolder(BaseAdapter adapter, View itemView) {
 		super(itemView);
+		itemView.setOnClickListener(adapter);
 		ButterKnife.bind(this, itemView);
 	}
 

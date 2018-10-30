@@ -24,7 +24,7 @@ public class TaskHallAdapter extends BaseAdapter<Task, TaskHallAdapter.TaskViewH
 	@Override
 	public TaskViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 		View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_task_hall, parent, false);
-		return new TaskViewHolder(view);
+		return new TaskViewHolder(this, view);
 	}
 
 	class TaskViewHolder extends BaseViewHolder<Task> {
@@ -32,8 +32,8 @@ public class TaskHallAdapter extends BaseAdapter<Task, TaskHallAdapter.TaskViewH
 		@BindView(R.id.tv_task_id)
 		protected TextView mTaskIdTv;
 
-		public TaskViewHolder(View itemView) {
-			super(itemView);
+		public TaskViewHolder(BaseAdapter adapter, View itemView) {
+			super(adapter, itemView);
 		}
 
 		@Override

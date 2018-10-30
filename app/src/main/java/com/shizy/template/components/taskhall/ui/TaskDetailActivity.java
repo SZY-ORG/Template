@@ -1,4 +1,4 @@
-package com.shizy.template.components.taskhall;
+package com.shizy.template.components.taskhall.ui;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

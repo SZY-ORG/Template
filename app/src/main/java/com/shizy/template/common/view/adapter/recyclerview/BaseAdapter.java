@@ -3,14 +3,20 @@ package com.shizy.template.common.view.adapter.recyclerview;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class BaseAdapter<T, VH extends BaseViewHolder<T>> extends RecyclerView.Adapter<VH> {
+public abstract class BaseAdapter<T, VH extends BaseViewHolder<T>> extends RecyclerView.Adapter<VH> implements View.OnClickListener {
+
+	public interface OnItemClickListener {
+		void onItemClick(View view, int position);
+	}
 
 	protected final Context mContext;
 	protected final List<T> mData;
+	private OnItemClickListener mOnItemClickListener;
 
 	public BaseAdapter(Context context) {
 		this(context, null);
@@ -29,6 +35,25 @@ public abstract class BaseAdapter<T, VH extends BaseViewHolder<T>> extends Recyc
 	@Override
 	public void onBindViewHolder(@NonNull VH holder, int position) {
 		holder.bindData(mData.get(position));
+		holder.itemView.setTag(position);
+	}
+
+	@Override
+	public void onClick(View view) {
+		if (mOnItemClickListener != null) {
+			mOnItemClickListener.onItemClick(view, (Integer) view.getTag());
+		}
+	}
+
+	public void setOnItemClickListener(OnItemClickListener listener) {
+		mOnItemClickListener = listener;
+	}
+
+	public T getItem(int position) {
+		if (position < 0 || position >= getItemCount()) {
+			return null;
+		}
+		return mData.get(position);
 	}
 
 	public void setData(List<T> data) {
