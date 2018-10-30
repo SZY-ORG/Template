@@ -1,5 +1,6 @@
 <resources>
 	<string name="app_name">Template</string>
+	<string name="product_advertising">加入城配，接单赚钱</string>
 	<string name="loading">加载中…</string>
 	<string name="no_more_data">没有更多数据了</string>
 	<string name="load_finished">加载完成</string>
@@ -29,15 +30,20 @@
 	<string name="sign_up">注册</string>
 	<string name="mobile">手机号</string>
 	<string name="password">密码</string>
-	<string name="password_hint">密码(6-12位)</string>
+	<string name="input_mobile">请输入手机号</string>
+	<string name="input_password">请输入密码</string>
+	<string name="forget_password">忘记密码？</string>
 	<string name="error_mobile_empty">手机号不能为空</string>
 	<string name="error_mobile_format">手机号格式错误</string>
 	<string name="error_password_empty">密码不能为空</string>
 	<string name="error_password_invalid">密码格式错误</string>
 
-	<string name="login_sign_up">没有帐号，去注册</string>
 	<string name="name">姓名</string>
-	<string name="repeat_password_hint">再次输入密码</string>
+	<string name="input_name">请输入真实姓名</string>
+	<string name="confirm_password">确认密码</string>
+	<string name="residential_city">居住城市</string>
+	<string name="driver_agreement">司机协议</string>
+	<string name="sign_up_driver_agreement">点击“注册”即代表同意《司机协议》</string>
 	<string name="error_name_empty">姓名不能为空</string>
 	<string name="error_repeat_password">两次输入密码不一致</string>
 
