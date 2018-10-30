@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+
+	<include layout="@layout/common_title" />
+
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="45dp"
+		android:background="#fdf9ed"
+		android:gravity="center_vertical"
+		android:paddingLeft="@dimen/horizontal_margin"
+		android:paddingRight="@dimen/horizontal_margin"
+		android:text="@string/perfect_info_statement" />
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:fillViewport="true">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:paddingLeft="@dimen/horizontal_margin">
+
+			<TextView
+				android:id="@+id/tv_basic_info"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="10dp"
+				android:text="@string/basic_info" />
+
+			<FrameLayout
+				android:id="@+id/layout_avatar"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				android:paddingRight="@dimen/horizontal_margin">
+
+				<TextView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center_vertical"
+					android:drawableRight="@drawable/arrow_right"
+					android:gravity="center_vertical"
+					android:text="@string/avatar" />
+
+				<ImageView
+					android:id="@+id/iv_avatar"
+					android:layout_width="45dp"
+					android:layout_height="45dp"
+					android:layout_gravity="right|center_vertical"
+					android:layout_marginRight="16dp"
+					android:background="@color/colorPrimary" />
+			</FrameLayout>
+
+			<View style="@style/Divider.Horizontal" />
+
+			<LinearLayout style="@style/PerfectInfoItemLayout">
+
+				<TextView
+					style="@style/PerfectInfoItemLabel"
+					android:text="@string/id_number" />
+
+				<EditText
+					android:id="@+id/edit_id_number"
+					style="@style/PerfectInfoItemContent"
+					android:hint="@string/hint_id_number"
+					android:inputType="text" />
+			</LinearLayout>
+
+			<View style="@style/Divider.Horizontal" />
+
+			<LinearLayout style="@style/PerfectInfoItemLayout">
+
+				<TextView
+					style="@style/PerfectInfoItemLabel"
+					android:text="@string/id_period" />
+
+				<TextView
+					android:id="@+id/tv_id_period"
+					style="@style/PerfectInfoItemContent"
+					android:drawableRight="@drawable/arrow_right"
+					android:hint="@string/hint_id_period" />
+			</LinearLayout>
+
+			<View style="@style/Divider.Horizontal" />
+
+			<LinearLayout style="@style/PerfectInfoItemLayout">
+
+				<TextView
+					style="@style/PerfectInfoItemLabel"
+					android:text="@string/driver_license_number" />
+
+				<EditText
+					android:id="@+id/edit_driver_license_number"
+					style="@style/PerfectInfoItemContent"
+					android:hint="@string/hint_driver_license_number"
+					android:inputType="text" />
+			</LinearLayout>
+
+			<View style="@style/Divider.Horizontal" />
+
+			<LinearLayout style="@style/PerfectInfoItemLayout">
+
+				<TextView
+					style="@style/PerfectInfoItemLabel"
+					android:text="@string/driver_license_period" />
+
+				<TextView
+					android:id="@+id/tv_driver_license_period"
+					style="@style/PerfectInfoItemContent"
+					android:drawableRight="@drawable/arrow_right"
+					android:hint="@string/hint_driver_license_period" />
+			</LinearLayout>
+
+			<View style="@style/Divider.Horizontal" />
+
+			<LinearLayout style="@style/PerfectInfoItemLayout">
+
+				<TextView
+					style="@style/PerfectInfoItemLabel"
+					android:text="@string/vehicle_permitted" />
+
+				<TextView
+					android:id="@+id/tv_vehicle_permitted"
+					style="@style/PerfectInfoItemContent"
+					android:drawableRight="@drawable/arrow_right"
+					android:hint="@string/hint_vehicle_permitted" />
+			</LinearLayout>
+
+			<View style="@style/Divider.Horizontal" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="10dp"
+				android:layout_marginBottom="10dp"
+				android:text="@string/credentials_info" />
+
+			<android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:paddingRight="@dimen/horizontal_margin">
+
+				<android.support.constraint.Guideline
+					android:id="@+id/guideline_vertical"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+					app:layout_constraintGuide_percent="0.5" />
+
+				<TextView
+					android:id="@+id/tv_id_card_front"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/id_card_front" />
+
+				<ImageView
+					android:id="@+id/iv_id_card_front"
+					style="@style/PerfectInfoItemPhoto"
+					android:layout_marginTop="10dp"
+					android:layout_marginRight="8dp"
+					app:layout_constraintLeft_toLeftOf="parent"
+					app:layout_constraintRight_toLeftOf="@id/guideline_vertical"
+					app:layout_constraintTop_toBottomOf="@id/tv_id_card_front" />
+
+				<TextView
+					android:id="@+id/tv_id_card_back"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="8dp"
+					android:text="@string/id_card_back"
+					app:layout_constraintLeft_toRightOf="@id/guideline_vertical" />
+
+				<ImageView
+					android:id="@+id/iv_id_card_back"
+					style="@style/PerfectInfoItemPhoto"
+					app:layout_constraintLeft_toLeftOf="@id/tv_id_card_back"
+					app:layout_constraintRight_toRightOf="parent"
+					app:layout_constraintTop_toTopOf="@id/iv_id_card_front" />
+
+				<TextView
+					android:id="@+id/tv_id_card_in_hand"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="10dp"
+					android:text="@string/id_card_in_hand"
+					app:layout_constraintTop_toBottomOf="@id/iv_id_card_front" />
+
+				<ImageView
+					android:id="@+id/iv_id_card_in_hand"
+					style="@style/PerfectInfoItemPhoto"
+					android:layout_marginTop="10dp"
+					app:layout_constraintLeft_toLeftOf="parent"
+					app:layout_constraintRight_toRightOf="@id/iv_id_card_front"
+					app:layout_constraintTop_toBottomOf="@+id/tv_id_card_in_hand" />
+
+				<TextView
+					android:id="@+id/tv_driver_license_photo"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="10dp"
+					android:text="@string/driver_license_photo"
+					app:layout_constraintLeft_toLeftOf="@id/iv_id_card_back"
+					app:layout_constraintTop_toBottomOf="@id/iv_id_card_back" />
+
+				<ImageView
+					android:id="@+id/iv_driver_license_photo"
+					style="@style/PerfectInfoItemPhoto"
+					app:layout_constraintLeft_toLeftOf="@id/iv_id_card_back"
+					app:layout_constraintRight_toRightOf="parent"
+					app:layout_constraintTop_toTopOf="@id/iv_id_card_in_hand" />
+
+			</android.support.constraint.ConstraintLayout>
+
+			<Button
+				android:id="@+id/btn_submit"
+				android:layout_width="match_parent"
+				android:layout_height="50dp"
+				android:layout_marginTop="20dp"
+				android:layout_marginRight="@dimen/horizontal_margin"
+				android:layout_marginBottom="20dp"
+				android:text="@string/confirm_to_submit" />
+
+		</LinearLayout>
+	</ScrollView>
+</LinearLayout>

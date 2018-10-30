@@ -47,6 +47,26 @@
 	<string name="error_name_empty">姓名不能为空</string>
 	<string name="error_repeat_password">两次输入密码不一致</string>
 
+	<string name="perfect_info_statement">以下信息仅用于资质审核，绝不外泄！</string>
+	<string name="basic_info">基本信息</string>
+	<string name="avatar">头像</string>
+	<string name="id_number">身份证号</string>
+	<string name="id_period">身份证有效期</string>
+	<string name="driver_license_number">驾驶证号</string>
+	<string name="driver_license_period">驾驶证有效期</string>
+	<string name="vehicle_permitted">准驾车型</string>
+	<string name="hint_id_number">请输入身份证号</string>
+	<string name="hint_id_period">请选择身份证有效期</string>
+	<string name="hint_driver_license_number">请输入驾驶证号</string>
+	<string name="hint_driver_license_period">请选择驾驶证有效期</string>
+	<string name="hint_vehicle_permitted">请选择准驾车型</string>
+	<string name="credentials_info">证件信息</string>
+	<string name="id_card_front">身份证—头像面</string>
+	<string name="id_card_back">身份证—国微面</string>
+	<string name="id_card_in_hand">手持身份证</string>
+	<string name="driver_license_photo">驾驶证照片</string>
+	<string name="confirm_to_submit">确认提交</string>
+
 	<string name="about">关于</string>
 	<string name="bankcard">银行卡</string>
 	<string name="work_bench">每日出车</string>
