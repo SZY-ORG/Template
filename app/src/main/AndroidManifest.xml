@@ -79,6 +79,9 @@
 			android:launchMode="singleTask"
 			android:screenOrientation="portrait" />
 		<activity
+			android:name=".components.taskhall.ui.TaskHistoryActivity"
+			android:screenOrientation="portrait" />
+		<activity
 			android:name=".components.main.ui.DebugActivity"
 			android:screenOrientation="portrait" />
 		<activity

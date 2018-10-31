@@ -29,16 +29,13 @@ public class TaskHallAdapter extends BaseAdapter<Task, TaskHallAdapter.TaskViewH
 
 	class TaskViewHolder extends BaseViewHolder<Task> {
 
-		@BindView(R.id.tv_task_id)
-		protected TextView mTaskIdTv;
-
 		public TaskViewHolder(BaseAdapter adapter, View itemView) {
 			super(adapter, itemView);
 		}
 
 		@Override
 		public void bindData(Task data) {
-			mTaskIdTv.setText(data.getId());
+
 		}
 	}
 
