@@ -11,6 +11,7 @@
 	<string name="task_hall">接单大厅</string>
 	<string name="workbench">每日出车</string>
 	<string name="personal_center">个人中心</string>
+	<string name="task_history">接单历史</string>
 
 	<string name="yes">是</string>
 	<string name="no">否</string>
@@ -66,6 +67,12 @@
 	<string name="id_card_in_hand">手持身份证</string>
 	<string name="driver_license_photo">驾驶证照片</string>
 	<string name="confirm_to_submit">确认提交</string>
+	
+	<string name="total_mileage">总里程</string>
+	<string name="estimate_time">预计耗时</string>
+	<string name="car_model">车型</string>
+	<string name="time">时间</string>
+	<string name="to_grab">去抢单</string>
 
 	<string name="setting">设置</string>
 	<string name="about">关于我们</string>

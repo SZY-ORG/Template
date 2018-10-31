@@ -20,6 +20,7 @@ import com.shizy.template.net.ServiceFactory;
 import com.shizy.template.net.response.ResponseData;
 import com.shizy.template.net.response.ResponseObserver;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -62,9 +63,16 @@ public class TaskHallFragment extends BaseTitleFragment {
 	}
 
 	@Override
+	protected void onClickTitleRight() {
+		super.onClickTitleRight();
+		startActivity(new Intent(getActivity(), TaskHistoryActivity.class));
+	}
+
+	@Override
 	public void onActivityCreated(@Nullable Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 		setTitle(R.string.task_hall);
+		setRightText(R.string.task_history);
 
 		initRecyclerView();
 		mRecyclerView.refresh();
@@ -88,38 +96,50 @@ public class TaskHallFragment extends BaseTitleFragment {
 	}
 
 	private void loadData(final int page) {
-		ServiceFactory.getService(ITaskService.class)
-				.getTaskList(page, mTimestamp)
-				.compose(RxJavaUtil.<ResponseData<Pagination<Task>>>mainSchedulers())
-				.as(this.<ResponseData<Pagination<Task>>>bindLifecycle())
-				.subscribe(new ResponseObserver<Pagination<Task>>() {
-					@Override
-					protected void onSuccess(ResponseData<Pagination<Task>> responseData) {
-						Pagination<Task> pagination = responseData.getData();
-						mPage = pagination.getPage();
-						List<Task> list = pagination.getList();
-						if (mPage == 1) {
-							mAdapter.setData(list);
-							mTimestamp = pagination.getTimestamp();
-						} else {
-							mAdapter.addAll(list);
-						}
-					}
+		mRecyclerView.postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				mRecyclerView.refreshComplete();
+				ArrayList<Task> list = new ArrayList<>();
+				for (int i = 0; i < 10; i++) {
+					list.add(new Task());
+				}
+				mAdapter.addAll(list);
+			}
+		}, 2000);
 
-					@Override
-					protected void onFailure(ResponseException e) {
-						UIUtil.showToast(e.getMsg());
-					}
-
-					@Override
-					protected void onFinally() {
-						if (mPage == 1) {
-							mRecyclerView.refreshComplete();
-						} else {
-							mRecyclerView.loadMoreComplete();
-						}
-					}
-				});
+//		ServiceFactory.getService(ITaskService.class)
+//				.getTaskList(page, mTimestamp)
+//				.compose(RxJavaUtil.<ResponseData<Pagination<Task>>>mainSchedulers())
+//				.as(this.<ResponseData<Pagination<Task>>>bindLifecycle())
+//				.subscribe(new ResponseObserver<Pagination<Task>>() {
+//					@Override
+//					protected void onSuccess(ResponseData<Pagination<Task>> responseData) {
+//						Pagination<Task> pagination = responseData.getData();
+//						mPage = pagination.getPage();
+//						List<Task> list = pagination.getList();
+//						if (mPage == 1) {
+//							mAdapter.setData(list);
+//							mTimestamp = pagination.getTimestamp();
+//						} else {
+//							mAdapter.addAll(list);
+//						}
+//					}
+//
+//					@Override
+//					protected void onFailure(ResponseException e) {
+//						UIUtil.showToast(e.getMsg());
+//					}
+//
+//					@Override
+//					protected void onFinally() {
+//						if (mPage == 1) {
+//							mRecyclerView.refreshComplete();
+//						} else {
+//							mRecyclerView.loadMoreComplete();
+//						}
+//					}
+//				});
 	}
 
 }
