@@ -91,6 +91,9 @@
 			android:name=".components.personalcenter.finance.CapitalFlowListActivity"
 			android:screenOrientation="portrait" />
 		<activity
+			android:name=".components.personalcenter.finance.CapitalFlowDetailActivity"
+			android:screenOrientation="portrait" />
+		<activity
 			android:name=".components.personalcenter.finance.WithdrawActivity"
 			android:screenOrientation="portrait" />
 		<activity

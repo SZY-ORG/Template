@@ -87,7 +87,6 @@
 	<string name="receipt_info">回单信息</string>
 	<string name="personal_info">个人信息列表</string>
 	<string name="finance_info">钱包</string>
-	<string name="capital_flow">流水列表</string>
 	<string name="business_list">业务明细</string>
 	<string name="withdraw">提现</string>
 	<string name="withdraw_money">可提金额</string>
