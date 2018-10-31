@@ -89,6 +89,7 @@
 	<string name="finance_info">钱包</string>
 	<string name="business_list">业务明细</string>
 	<string name="withdraw">提现</string>
+	<string name="withdraw_history">历史提现</string>
 	<string name="withdraw_money">可提金额</string>
 	<string name="withdraw_history_list">提现历史记录</string>
 	<string name="deposit">押金</string>

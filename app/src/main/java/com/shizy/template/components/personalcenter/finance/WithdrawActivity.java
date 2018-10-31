@@ -2,9 +2,14 @@ package com.shizy.template.components.personalcenter.finance;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.View;
 
 import com.shizy.template.R;
+import com.shizy.template.common.utils.ClickUtil;
+import com.shizy.template.common.utils.ToastUtil;
 import com.shizy.template.common.view.activity.BaseTitleActivity;
+
+import butterknife.OnClick;
 
 /**
  * description
@@ -24,14 +29,29 @@ public class WithdrawActivity extends BaseTitleActivity {
 
 	private void initView() {
 		setTitle(R.string.withdraw);
-		setRightText(R.string.ok);
-
 	}
 
 	@Override
 	protected void onClickTitleLeft() {
 
 		super.onClickTitleLeft();
+	}
+
+	@OnClick({R.id.btn_withdraw, R.id.tv_withdraw_protocol})
+	protected void onClick(View view) {
+		if (!ClickUtil.isValid()) {
+			return;
+		}
+		switch (view.getId()) {
+			// 确认提现
+			case R.id.btn_withdraw:
+				ToastUtil.showShort("提现成功");
+				break;
+			// 提现协议
+			case R.id.tv_withdraw_protocol:
+				ToastUtil.showShort("提现协议");
+				break;
+		}
 	}
 
 }

@@ -1,9 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent">
 	
-	<include layout="@layout/common_title" />
+	<include android:id="@+id/title_view"
+		layout="@layout/common_title" />
 	
+	<TextView android:id="@+id/drawable_money"
+		style="@style/Text.F16.Black"
+		android:layout_width="match_parent"
+		android:layout_height="120dp"
+		android:background="@color/white"
+		android:gravity="center"
+		android:text="4000.00"
+		android:textSize="@dimen/font_36"
+		app:layout_constraintTop_toBottomOf="@id/title_view" />
+	
+	<TextView android:id="@+id/bank_view"
+		android:layout_width="match_parent"
+		android:layout_height="@dimen/title_bar_height"
+		android:layout_marginTop="@dimen/vertical_margin"
+		android:background="@color/white"
+		android:gravity="center_vertical"
+		android:paddingLeft="@dimen/vertical_margin"
+		android:text="到账银行：农业银行（尾号：2323）"
+		app:layout_constraintTop_toBottomOf="@id/drawable_money" />
+	
+	<LinearLayout android:id="@+id/withdraw_money"
+		android:layout_width="match_parent"
+		android:layout_height="120dp"
+		android:layout_marginTop="@dimen/vertical_margin"
+		android:background="@color/white"
+		android:orientation="horizontal"
+		app:layout_constraintTop_toBottomOf="@id/bank_view">
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:paddingLeft="@dimen/vertical_margin"
+			android:paddingTop="@dimen/vertical_margin"
+			android:text="提现金额："
+		/>
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:background="@color/white"
+			android:paddingTop="@dimen/vertical_margin"
+			android:text="10000"
+			android:textSize="@dimen/font_24"
+		/>
+	</LinearLayout>
+	
+	<LinearLayout android:id="@+id/withdraw_protocol"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="@dimen/horizontal_margin"
+		android:orientation="horizontal"
+		app:layout_constraintTop_toBottomOf="@id/withdraw_money">
+		<CheckBox android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="已阅读并理解同意" />
+		<TextView android:id="@+id/tv_withdraw_protocol"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:paddingTop="@dimen/vertical_margin"
+			android:text="《司机提现协议》"
+			android:textColor="@color/blue"
+		/>
+	</LinearLayout>
+	
+	<Button android:id="@+id/btn_withdraw"
+		style="@style/Text.F16.White"
+		android:layout_width="120dp"
+		android:layout_height="50dp"
+		android:layout_marginTop="30dp"
+		android:background="@color/blue"
+		android:text="确认提现"
+		app:layout_constraintLeft_toLeftOf="parent"
+		app:layout_constraintRight_toRightOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/withdraw_protocol"
+	/>
+
+
 </android.support.constraint.ConstraintLayout>
