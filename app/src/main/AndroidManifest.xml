@@ -109,6 +109,15 @@
 			android:name=".components.personalcenter.PersonalInfoActivity"
 			android:screenOrientation="portrait" />
 		<activity
+			android:name=".components.personalcenter.SettingActivity"
+			android:screenOrientation="portrait" />
+		<activity
+			android:name=".components.personalcenter.MyVehicleActivity"
+			android:screenOrientation="portrait" />
+		<activity
+			android:name=".components.personalcenter.ModifyPasswordActivity"
+			android:screenOrientation="portrait" />
+		<activity
 			android:name=".components.taskhall.BidConfirmActivity"
 			android:screenOrientation="portrait" />
 		<activity

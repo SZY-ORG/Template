@@ -10,7 +10,7 @@ import com.shizy.template.common.utils.ClickUtil;
 import com.shizy.template.common.view.activity.BaseTitleActivity;
 import com.shizy.template.components.personalcenter.finance.CapitalFlowListActivity;
 import com.shizy.template.components.personalcenter.finance.WithdrawActivity;
-import com.shizy.template.components.personalcenter.finance.WithdrawHistoryListActivity;
+import com.shizy.template.components.personalcenter.personalinfo.BankcardInfoActivity;
 
 import butterknife.OnClick;
 
@@ -41,23 +41,23 @@ public class FinanceInfoActivity extends BaseTitleActivity {
 		super.onClickTitleLeft();
 	}
 
-	@OnClick({R.id.capital_flow, R.id.withdraw, R.id.withdraw_history_list})
+	@OnClick({R.id.business_list, R.id.withdraw, R.id.bankcard})
 	protected void onClick(View view) {
 		if (!ClickUtil.isValid()) {
 			return;
 		}
 		switch (view.getId()) {
 			// 流水列表页面
-			case R.id.capital_flow:
+			case R.id.business_list:
 				startActivity(new Intent(FinanceInfoActivity.this, CapitalFlowListActivity.class));
 				break;
 			// 提现
 			case R.id.withdraw:
 				startActivity(new Intent(FinanceInfoActivity.this, WithdrawActivity.class));
 				break;
-			// 提现历史
-			case R.id.withdraw_history_list:
-				startActivity(new Intent(FinanceInfoActivity.this, WithdrawHistoryListActivity.class));
+			// 银行卡
+			case R.id.bankcard:
+				startActivity(new Intent(FinanceInfoActivity.this, BankcardInfoActivity.class));
 				break;
 		}
 	}

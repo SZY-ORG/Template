@@ -1,35 +1,203 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent">
+	android:layout_height="match_parent"
+	android:orientation="vertical">
 	
 	<include android:id="@+id/title_view"
 		layout="@layout/common_title" />
 	
-	<Button android:id="@+id/personal_info"
-		android:layout_width="wrap_content"
+	<RelativeLayout android:id="@+id/personal_info"
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:text="@string/personal_info"
-		app:layout_constraintTop_toBottomOf="@id/title_view" />
+		android:padding="@dimen/vertical_margin">
+		
+		<ImageView android:id="@+id/img_avatar"
+			android:layout_width="58dp"
+			android:layout_height="58dp"
+			android:background="@drawable/shape_circle_gray_3dp"
+		/>
+		<TextView android:id="@+id/tv_name"
+			style="@style/Text.F16.Black"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_toRightOf="@id/img_avatar"
+			android:gravity="center"
+			android:paddingLeft="@dimen/horizontal_margin"
+			android:text="王某某" />
+		<TextView style="@style/Text.F16.Black"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@id/tv_name"
+			android:layout_toRightOf="@id/img_avatar"
+			android:gravity="center"
+			android:paddingLeft="@dimen/horizontal_margin"
+			android:paddingTop="5dp"
+			android:text="133888888121" />
+		<ImageView android:id="@+id/avatar_arrow"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"
+			android:src="@drawable/arrow_right" />
 	
-	<Button android:id="@+id/finance_info"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="@string/finance_info"
-		app:layout_constraintTop_toBottomOf="@id/personal_info" />
+	</RelativeLayout>
 	
-	<Button android:id="@+id/deposit"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="@string/deposit"
-		app:layout_constraintTop_toBottomOf="@id/finance_info" />
+	<View android:layout_width="match_parent"
+		android:layout_height="0.5dp"
+		android:layout_marginLeft="@dimen/horizontal_margin"
+		android:background="@color/gray" />
 	
-	<Button android:id="@+id/about_us"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="@string/about"
-		app:layout_constraintTop_toBottomOf="@id/deposit" />
+	<RelativeLayout android:id="@+id/finance_info"
+		android:layout_width="match_parent"
+		android:layout_height="58dp"
+		android:paddingLeft="@dimen/horizontal_margin"
+		android:paddingRight="@dimen/horizontal_margin"
+	>
+		<TextView
+			style="@style/Text.F16.Black"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:gravity="center"
+			android:paddingLeft="@dimen/horizontal_margin"
+			android:text="钱包" />
+		<ImageView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"
+			android:src="@drawable/arrow_right" />
+	</RelativeLayout>
+	<View android:layout_width="match_parent"
+		android:layout_height="0.5dp"
+		android:layout_marginLeft="@dimen/horizontal_margin"
+		android:background="@color/gray" />
+	
+	<RelativeLayout android:id="@+id/deposit"
+		android:layout_width="match_parent"
+		android:layout_height="58dp"
+		android:paddingLeft="@dimen/horizontal_margin"
+		android:paddingRight="@dimen/horizontal_margin"
+	>
+		<TextView
+			style="@style/Text.F16.Black"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:gravity="center"
+			android:paddingLeft="@dimen/horizontal_margin"
+			android:text="@string/deposit" />
+		<ImageView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"
+			android:src="@drawable/arrow_right" />
+	</RelativeLayout>
+	<View android:layout_width="match_parent"
+		android:layout_height="0.5dp"
+		android:layout_marginLeft="@dimen/horizontal_margin"
+		android:background="@color/gray" />
+	
+	<RelativeLayout android:id="@+id/my_vehicle"
+		android:layout_width="match_parent"
+		android:layout_height="58dp"
+		android:paddingLeft="@dimen/horizontal_margin"
+		android:paddingRight="@dimen/horizontal_margin"
+	>
+		<TextView
+			style="@style/Text.F16.Black"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:gravity="center"
+			android:paddingLeft="@dimen/horizontal_margin"
+			android:text="我的车辆" />
+		<ImageView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"
+			android:src="@drawable/arrow_right" />
+	</RelativeLayout>
+	<View android:layout_width="match_parent"
+		android:layout_height="0.5dp"
+		android:layout_marginLeft="@dimen/horizontal_margin"
+		android:background="@color/gray" />
+	
+	<RelativeLayout android:id="@+id/modify_password"
+		android:layout_width="match_parent"
+		android:layout_height="58dp"
+		android:paddingLeft="@dimen/horizontal_margin"
+		android:paddingRight="@dimen/horizontal_margin"
+	>
+		<TextView
+			style="@style/Text.F16.Black"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:gravity="center"
+			android:paddingLeft="@dimen/horizontal_margin"
+			android:text="@string/modify_password" />
+		<ImageView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"
+			android:src="@drawable/arrow_right" />
+	</RelativeLayout>
+	<View android:layout_width="match_parent"
+		android:layout_height="0.5dp"
+		android:layout_marginLeft="@dimen/horizontal_margin"
+		android:background="@color/gray" />
+	
+	<RelativeLayout android:id="@+id/about_us"
+		android:layout_width="match_parent"
+		android:layout_height="58dp"
+		android:paddingLeft="@dimen/horizontal_margin"
+		android:paddingRight="@dimen/horizontal_margin"
+	>
+		<TextView
+			style="@style/Text.F16.Black"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:gravity="center"
+			android:paddingLeft="@dimen/horizontal_margin"
+			android:text="@string/about" />
+		<ImageView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"
+			android:src="@drawable/arrow_right" />
+	</RelativeLayout>
+	<View android:layout_width="match_parent"
+		android:layout_height="0.5dp"
+		android:layout_marginLeft="@dimen/horizontal_margin"
+		android:background="@color/gray" />
+	
+	<RelativeLayout android:id="@+id/setting"
+		android:layout_width="match_parent"
+		android:layout_height="58dp"
+		android:paddingLeft="@dimen/horizontal_margin"
+		android:paddingRight="@dimen/horizontal_margin"
+	>
+		<TextView
+			style="@style/Text.F16.Black"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:gravity="center"
+			android:paddingLeft="@dimen/horizontal_margin"
+			android:text="@string/setting" />
+		<ImageView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"
+			android:src="@drawable/arrow_right" />
+	</RelativeLayout>
+	<View android:layout_width="match_parent"
+		android:layout_height="0.5dp"
+		android:layout_marginLeft="@dimen/horizontal_margin"
+		android:background="@color/gray" />
 
-</android.support.constraint.ConstraintLayout>
+
+</LinearLayout>

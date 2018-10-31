@@ -1,9 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent">
+	android:layout_height="match_parent"
+	android:orientation="vertical">
 	
-	<include layout="@layout/common_title" />
+	<include android:id="@+id/layout_title"
+		layout="@layout/common_title" />
 	
-</android.support.constraint.ConstraintLayout>
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="68dp"
+		android:paddingLeft="@dimen/vertical_margin"
+		android:paddingRight="@dimen/vertical_margin">
+		<TextView style="@style/Text.F16.Black"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:gravity="center"
+			android:text="头像" />
+		<ImageView android:id="@+id/avatar_arrow"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"
+			android:src="@drawable/arrow_right" />
+		<ImageView android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_centerVertical="true"
+			android:layout_toLeftOf="@id/avatar_arrow"
+			android:background="@drawable/shape_circle_gray_3dp"
+		/>
+	</RelativeLayout>
+	<View android:layout_width="match_parent"
+		android:layout_height="0.5dp"
+		android:layout_marginLeft="@dimen/horizontal_margin"
+		android:background="@color/gray" />
+	
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="58dp"
+		android:paddingLeft="@dimen/vertical_margin"
+		android:paddingRight="@dimen/vertical_margin">
+		<TextView style="@style/Text.F16.Black"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:gravity="center"
+			android:text="姓名" />
+		
+		<TextView style="@style/Text.F16.Black"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"
+			android:gravity="center"
+			android:text="测试"
+		/>
+	</RelativeLayout>
+	<View android:layout_width="match_parent"
+		android:layout_height="0.5dp"
+		android:layout_marginLeft="@dimen/horizontal_margin"
+		android:background="@color/gray" />
+	
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="58dp"
+		android:paddingLeft="@dimen/vertical_margin"
+		android:paddingRight="@dimen/vertical_margin">
+		<TextView style="@style/Text.F16.Black"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:gravity="center"
+			android:text="手机号" />
+		<ImageView android:id="@+id/phone_arrow"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"
+			android:src="@drawable/arrow_right" />
+		<TextView style="@style/Text.F16.Black"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_centerVertical="true"
+			android:layout_toLeftOf="@id/phone_arrow"
+			android:gravity="center"
+			android:text="13088881234"
+		/>
+	</RelativeLayout>
+	<View android:layout_width="match_parent"
+		android:layout_height="0.5dp"
+		android:layout_marginLeft="@dimen/horizontal_margin"
+		android:background="@color/gray" />
+	
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="58dp"
+		android:paddingLeft="@dimen/vertical_margin"
+		android:paddingRight="@dimen/vertical_margin">
+		<TextView style="@style/Text.F16.Black"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:gravity="center"
+			android:text="测试" />
+		<ImageView android:id="@+id/test_arrow1"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"
+			android:src="@drawable/arrow_right" />
+		<TextView style="@style/Text.F16.Black"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_centerVertical="true"
+			android:layout_toLeftOf="@id/test_arrow1"
+			android:gravity="center"
+			android:text="测试测试测试"
+		/>
+	</RelativeLayout>
+	<View android:layout_width="match_parent"
+		android:layout_height="0.5dp"
+		android:layout_marginLeft="@dimen/horizontal_margin"
+		android:background="@color/gray" />
+	
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="58dp"
+		android:paddingLeft="@dimen/vertical_margin"
+		android:paddingRight="@dimen/vertical_margin">
+		<TextView style="@style/Text.F16.Black"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:gravity="center"
+			android:text="测试2" />
+		<ImageView android:id="@+id/test_arrow2"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"
+			android:src="@drawable/arrow_right" />
+		<TextView style="@style/Text.F16.Black"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_centerVertical="true"
+			android:layout_toLeftOf="@id/test_arrow2"
+			android:gravity="center"
+			android:text="测试测试测试2"
+		/>
+	</RelativeLayout>
+	<View android:layout_width="match_parent"
+		android:layout_height="0.5dp"
+		android:layout_marginLeft="@dimen/horizontal_margin"
+		android:background="@color/gray" />
+	
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="58dp"
+		android:layout_marginTop="@dimen/vertical_margin"
+		android:paddingLeft="@dimen/vertical_margin"
+		android:paddingRight="@dimen/vertical_margin">
+		<TextView style="@style/Text.F16.Black"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:gravity="center"
+			android:text="我的资料" />
+		<ImageView android:id="@+id/my_info_arrow"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"
+			android:src="@drawable/arrow_right" />
+		<TextView style="@style/Text.F16.Black"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_centerVertical="true"
+			android:layout_toLeftOf="@id/my_info_arrow"
+			android:gravity="center"
+			android:text="已审核"
+		/>
+	</RelativeLayout>
+	<View android:layout_width="match_parent"
+		android:layout_height="0.5dp"
+		android:layout_marginLeft="@dimen/horizontal_margin"
+		android:background="@color/gray" />
+
+</LinearLayout>

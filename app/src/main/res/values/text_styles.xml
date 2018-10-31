@@ -58,6 +58,10 @@
 	<style name="Text.F16.White">
 		<item name="android:textColor">@color/white</item>
 	</style>
+	
+	<style name="Text.F16.Black">
+		<item name="android:textColor">@color/black</item>
+	</style>
 
 	<style name="Text.F18.White">
 		<item name="android:textColor">@color/white</item>
