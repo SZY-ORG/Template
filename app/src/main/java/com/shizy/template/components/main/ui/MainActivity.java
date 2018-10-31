@@ -1,5 +1,6 @@
 package com.shizy.template.components.main.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
@@ -12,6 +13,7 @@ import com.shizy.template.components.main.bean.TabEntity;
 import com.shizy.template.components.personalcenter.PersonalFragment;
 import com.shizy.template.components.taskhall.ui.TaskHallFragment;
 import com.shizy.template.components.workbench.WorkbenchFragment;
+import com.shizy.template.service.LocationService;
 
 import java.util.ArrayList;
 
@@ -55,6 +57,8 @@ public class MainActivity extends BaseActivity {
 			tabIndex = savedInstanceState.getInt(KEY_TAB_INDEX);
 		}
 		mTabLayout.setCurrentTab(tabIndex);
+
+		startService(new Intent(this, LocationService.class));
 	}
 
 	@Override
