@@ -1,10 +1,15 @@
-package com.shizy.template.components.personalcenter.personalinfo;
+package com.shizy.template.components.personalcenter.finance;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.View;
 
 import com.shizy.template.R;
+import com.shizy.template.common.utils.ClickUtil;
 import com.shizy.template.common.view.activity.BaseTitleActivity;
+
+import butterknife.OnClick;
 
 /**
  * description
@@ -24,7 +29,7 @@ public class BankcardInfoActivity extends BaseTitleActivity {
 
 	private void initView() {
 		setTitle(R.string.bankcard);
-		setRightText(R.string.ok);
+		setRightText(R.string.modify);
 
 	}
 
@@ -32,6 +37,19 @@ public class BankcardInfoActivity extends BaseTitleActivity {
 	protected void onClickTitleLeft() {
 
 		super.onClickTitleLeft();
+	}
+
+	@OnClick({R.id.empty_view})
+	protected void onClick(View view) {
+		if (!ClickUtil.isValid()) {
+			return;
+		}
+		switch (view.getId()) {
+			// 添加银行卡
+			case R.id.empty_view:
+				startActivity(new Intent(BankcardInfoActivity.this, BindBankCardActivity.class));
+				break;
+		}
 	}
 
 }

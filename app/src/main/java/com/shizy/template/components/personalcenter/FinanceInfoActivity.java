@@ -10,7 +10,7 @@ import com.shizy.template.common.utils.ClickUtil;
 import com.shizy.template.common.view.activity.BaseTitleActivity;
 import com.shizy.template.components.personalcenter.finance.CapitalFlowListActivity;
 import com.shizy.template.components.personalcenter.finance.WithdrawActivity;
-import com.shizy.template.components.personalcenter.personalinfo.BankcardInfoActivity;
+import com.shizy.template.components.personalcenter.finance.BankcardInfoActivity;
 
 import butterknife.OnClick;
 

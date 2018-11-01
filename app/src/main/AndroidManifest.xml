@@ -117,7 +117,10 @@
 			android:name=".components.personalcenter.finance.WithdrawHistoryListActivity"
 			android:screenOrientation="portrait" />
 		<activity
-			android:name=".components.personalcenter.personalinfo.BankcardInfoActivity"
+			android:name=".components.personalcenter.finance.BankcardInfoActivity"
+			android:screenOrientation="portrait" />
+		<activity
+			android:name=".components.personalcenter.finance.BindBankCardActivity"
 			android:screenOrientation="portrait" />
 		<activity
 			android:name=".components.personalcenter.FinanceInfoActivity"
