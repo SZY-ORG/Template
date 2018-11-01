@@ -14,6 +14,7 @@ import com.shizy.template.components.personalcenter.PersonalFragment;
 import com.shizy.template.components.taskhall.ui.TaskHallFragment;
 import com.shizy.template.components.workbench.WorkbenchFragment;
 import com.shizy.template.service.LocationService;
+import com.shizy.template.service.ReportService;
 
 import java.util.ArrayList;
 
@@ -59,6 +60,7 @@ public class MainActivity extends BaseActivity {
 		mTabLayout.setCurrentTab(tabIndex);
 
 		startService(new Intent(this, LocationService.class));
+		startService(new Intent(this, ReportService.class));
 	}
 
 	@Override
