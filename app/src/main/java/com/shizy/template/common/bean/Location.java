@@ -2,31 +2,51 @@ package com.shizy.template.common.bean;
 
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationQualityReport;
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
 
 /**
  * 位置信息
  */
+@DatabaseTable(tableName = "location")
 public class Location extends BaseBean {
 
+	@DatabaseField(generatedId = true)
+	private long id;
+	@DatabaseField
+	private String uid;// 当前用户id
+	@DatabaseField
 	private int type;// 定位类型
+	@DatabaseField
 	private double longitude;// 经度
+	@DatabaseField
 	private double latitude;// 纬度
+	@DatabaseField
 	private float accuracy;// 精度
+	@DatabaseField
 	private double altitude;// 海拔
+	@DatabaseField
 	private float speed;// 速度
+	@DatabaseField
 	private float bearing;// 角度
+	@DatabaseField
 	private int satellites;//卫星个数
+	@DatabaseField
 	private long time;// 定位时间
+	@DatabaseField
 	private int wifiAble;// WIFI开关
+	@DatabaseField
 	private int gpsStatus;// GPS状态
+	@DatabaseField
 	private String networkType;// 网络类型
 
 	public Location() {
 
 	}
 
-	public Location(AMapLocation location) {
+	public Location(AMapLocation location, String uid) {
 		if (location != null) {
+			this.uid = uid;
 			type = location.getLocationType();
 			longitude = location.getLongitude();
 			latitude = location.getLatitude();
@@ -43,6 +63,22 @@ public class Location extends BaseBean {
 			networkType = report.getNetworkType();
 			report = null;
 		}
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getUid() {
+		return uid;
+	}
+
+	public void setUid(String uid) {
+		this.uid = uid;
 	}
 
 	public int getType() {

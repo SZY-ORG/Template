@@ -6,15 +6,21 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.support.annotation.IntDef;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
+import com.shizy.template.common.bean.Location;
+import com.shizy.template.common.constant.SPConstant;
+import com.shizy.template.common.db.DatabaseHelper;
 import com.shizy.template.common.utils.LogUtil;
+import com.shizy.template.common.utils.SPUtil;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import java.sql.SQLException;
 
 /**
  * 定位服务
@@ -45,7 +51,8 @@ public class LocationService extends Service {
 				return;
 			}
 			if (aMapLocation.getErrorCode() == 0) {
-				LogUtil.e("onLocationChanged");
+				LogUtil.d("onLocationChanged");
+				saveLocation(aMapLocation);
 			} else {
 				LogUtil.e("location failed!");
 			}
@@ -59,8 +66,11 @@ public class LocationService extends Service {
 	//声明AMapLocationClientOption对象
 	private AMapLocationClientOption mLocationOption = null;
 
+	private DatabaseHelper mDatabaseHelper = null;
+
 	@Override
 	public void onCreate() {
+		mDatabaseHelper = DatabaseHelper.getHelper(this);
 		initLocation();
 		startSelf();
 	}
@@ -98,6 +108,8 @@ public class LocationService extends Service {
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
+		mDatabaseHelper = null;
+		DatabaseHelper.releaseHelper();
 		if (mLocationClient != null) {
 			mLocationClient.stopLocation();
 			mLocationClient.onDestroy();
@@ -121,6 +133,22 @@ public class LocationService extends Service {
 	@Override
 	public IBinder onBind(Intent intent) {
 		return mBinder;
+	}
+
+	private void saveLocation(AMapLocation aMapLocation) {
+		if (aMapLocation == null) {
+			return;
+		}
+//		String uid = SPUtil.getString(SPConstant.UID, null);
+		String uid = "123";
+		if (TextUtils.isEmpty(uid)) {
+			return;
+		}
+		try {
+			mDatabaseHelper.getLocationDao().create(new Location(aMapLocation, uid));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public AMapLocation getLastLocation() {

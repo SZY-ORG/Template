@@ -33,7 +33,8 @@
 		<!-- 高德Key -->
 		<meta-data
 			android:name="com.amap.api.v2.apikey"
-			android:value="7564f2e36ca615741640009ca939c15e" />
+			android:value="5fa31e212bc3fe7a816ea1765299ac75" />
+
 		<service android:name="com.amap.api.location.APSService" />
 
 		<!-- 百度移动统计配置 -->
