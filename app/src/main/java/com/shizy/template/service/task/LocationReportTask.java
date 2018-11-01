@@ -1,10 +1,13 @@
 package com.shizy.template.service.task;
 
 import android.content.Context;
+import android.text.TextUtils;
 
+import com.google.gson.Gson;
 import com.j256.ormlite.dao.Dao;
 import com.shizy.template.common.bean.Location;
 import com.shizy.template.common.db.DatabaseHelper;
+import com.shizy.template.common.utils.ZipUtil;
 import com.shizy.template.net.ServiceFactory;
 import com.shizy.template.net.response.ResponseCode;
 import com.shizy.template.net.response.ResponseData;
@@ -36,7 +39,13 @@ public class LocationReportTask extends TimerTask {
 			if (list == null || list.size() == 0) {
 				return;
 			}
-			Call<ResponseData<Void>> call = ServiceFactory.getService(IReportService.class).uploadLocation(null);
+			Gson gson = new Gson();
+			String content = ZipUtil.compressToString(gson.toJson(list));
+			if (TextUtils.isEmpty(content)) {
+				return;
+			}
+
+			Call<ResponseData<Void>> call = ServiceFactory.getService(IReportService.class).uploadLocation(content);
 			Response<ResponseData<Void>> response = call.execute();
 			ResponseData<Void> data = response.body();
 			if (data != null && data.getCode() == ResponseCode.SUCCESS) {
