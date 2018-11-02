@@ -101,11 +101,14 @@
 	<string name="bank_card_opening_city">办卡城市</string>
 	<string name="bank_card_number">银行卡号</string>
 	<string name="opening_bank">开户行</string>
-	<string name="frozen_money">不可提金额</string>
+	<string name="un_drawable_money">不可提金额</string>
+	<string name="frozen_money">冻结金额</string>
 	<string name="out_of_account_money">未入账金额</string>
 	<string name="old_pwd">旧密码</string>
 	<string name="new_pwd">新密码</string>
 	<string name="confirm_new_pwd">确认密码</string>
+	
+	<string name="arrangement_history">历史出车</string>
 
 
 </resources>

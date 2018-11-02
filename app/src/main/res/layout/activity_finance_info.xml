@@ -37,7 +37,7 @@
 			android:layout_marginLeft="@dimen/horizontal_margin"
 			android:layout_weight="1"
 			android:background="@color/white"
-			android:text="@string/frozen_money" />
+			android:text="@string/un_drawable_money" />
 		
 		<Button android:id="@+id/withdraw"
 			android:layout_width="0dp"

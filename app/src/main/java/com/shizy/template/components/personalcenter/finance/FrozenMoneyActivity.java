@@ -62,7 +62,7 @@ public class FrozenMoneyActivity extends BaseTitleActivity {
 	}
 
 	private void initView() {
-		setTitle(R.string.out_of_account_money);
+		setTitle(R.string.frozen_money);
 
 		initRecyclerView();
 		mRecyclerView.refresh();

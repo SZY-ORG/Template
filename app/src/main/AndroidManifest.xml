@@ -136,16 +136,13 @@
 			android:name=".components.personalcenter.finance.UnsettlementMoneyActivity"
 			android:screenOrientation="portrait" />
 		<activity
-			android:name=".components.personalcenter.AboutUsActivity"
+			android:name=".components.personalcenter.AuthenticationActivity"
 			android:screenOrientation="portrait" />
 		<activity
 			android:name=".components.personalcenter.DepositActivity"
 			android:screenOrientation="portrait" />
 		<activity
 			android:name=".components.personalcenter.PersonalInfoActivity"
-			android:screenOrientation="portrait" />
-		<activity
-			android:name=".components.personalcenter.SettingActivity"
 			android:screenOrientation="portrait" />
 		<activity
 			android:name=".components.personalcenter.MyVehicleActivity"
@@ -167,6 +164,9 @@
 			android:screenOrientation="portrait" />
 		<activity
 			android:name=".components.workbench.UploadReceiptActivity"
+			android:screenOrientation="portrait" />
+		<activity
+			android:name=".components.workbench.ArrangementHistoryActivity"
 			android:screenOrientation="portrait" />
 		<activity
 			android:name=".components.account.ui.LoginActivity"

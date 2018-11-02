@@ -7,23 +7,22 @@ import com.shizy.template.R;
 import com.shizy.template.common.view.activity.BaseTitleActivity;
 
 /**
- * description
- * 关于
+ * description 资料审核页面
  *
  * @author dahu
- * time 2018/10/25 10:28.
+ * time 2018/11/2 11:52.
  */
-public class AboutUsActivity extends BaseTitleActivity {
+public class AuthenticationActivity extends BaseTitleActivity {
 
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_about_us);
+		setContentView(R.layout.activity_authentication);
 		initView();
 	}
 
 	private void initView() {
-		setTitle(R.string.about);
+		setTitle(R.string.modify_password);
 
 	}
 

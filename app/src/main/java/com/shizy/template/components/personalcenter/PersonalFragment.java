@@ -25,24 +25,16 @@ public class PersonalFragment extends BaseTitleFragment {
 
 	}
 
-	@OnClick({R.id.personal_info, R.id.finance_info, R.id.deposit, R.id.modify_password,
-			R.id.my_vehicle, R.id.about_us, R.id.setting})
+	@OnClick({R.id.finance_info, R.id.modify_password,
+			R.id.my_vehicle, R.id.authentication})
 	protected void onClick(View view) {
 		if (!ClickUtil.isValid()) {
 			return;
 		}
 		switch (view.getId()) {
-			// 个人信息
-			case R.id.personal_info:
-				startActivity(new Intent(getActivity(), PersonalInfoActivity.class));
-				break;
 			// 钱包
 			case R.id.finance_info:
 				startActivity(new Intent(getActivity(), FinanceInfoActivity.class));
-				break;
-			// 押金
-			case R.id.deposit:
-				startActivity(new Intent(getActivity(), DepositActivity.class));
 				break;
 			// 我的车辆
 			case R.id.my_vehicle:
@@ -52,13 +44,9 @@ public class PersonalFragment extends BaseTitleFragment {
 			case R.id.modify_password:
 				startActivity(new Intent(getActivity(), ModifyPasswordActivity.class));
 				break;
-			// 关于
-			case R.id.about_us:
-				startActivity(new Intent(getActivity(), AboutUsActivity.class));
-				break;
-			// 设置
-			case R.id.setting:
-				startActivity(new Intent(getActivity(), SettingActivity.class));
+			// 修改密码
+			case R.id.authentication:
+				startActivity(new Intent(getActivity(), AuthenticationActivity.class));
 				break;
 		}
 	}
