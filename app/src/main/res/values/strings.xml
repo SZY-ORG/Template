@@ -43,6 +43,7 @@
 	<string name="input_name">请输入真实姓名</string>
 	<string name="confirm_password">确认密码</string>
 	<string name="residential_city">居住城市</string>
+	<string name="hint_residential_city">请选择居住城市</string>
 	<string name="driver_agreement">司机协议</string>
 	<string name="sign_up_driver_agreement">点击“注册”即代表同意《司机协议》</string>
 	<string name="error_name_empty">姓名不能为空</string>

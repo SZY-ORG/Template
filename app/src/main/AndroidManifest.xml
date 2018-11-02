@@ -103,7 +103,10 @@
 			android:name=".components.main.ui.DebugActivity"
 			android:screenOrientation="portrait" />
 		<activity
-			android:name=".components.web.WebViewActivity"
+			android:name=".components.common.ui.WebViewActivity"
+			android:screenOrientation="portrait" />
+		<activity
+			android:name=".components.common.ui.list.SelectListActivity"
 			android:screenOrientation="portrait" />
 		<activity
 			android:name=".components.personalcenter.finance.BusinessListActivity"
