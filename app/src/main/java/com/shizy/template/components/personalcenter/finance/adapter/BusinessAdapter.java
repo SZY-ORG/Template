@@ -1,4 +1,4 @@
-package com.shizy.template.components.personalcenter.finance;
+package com.shizy.template.components.personalcenter.finance.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import com.shizy.template.R;
 import com.shizy.template.common.view.adapter.recyclerview.BaseAdapter;
 import com.shizy.template.common.view.adapter.recyclerview.BaseViewHolder;
-import com.shizy.template.components.personalcenter.finance.bean.CapitalFlow;
+import com.shizy.template.components.personalcenter.finance.bean.BusinessList;
 
 /**
  * description 业务明细列表adapter
@@ -17,27 +17,27 @@ import com.shizy.template.components.personalcenter.finance.bean.CapitalFlow;
  * @author dahu
  * time 2018/10/31 14:23.
  */
-public class CapitalFlowAdapter extends BaseAdapter<CapitalFlow, CapitalFlowAdapter.CapitalFlowViewHolder> {
+public class BusinessAdapter extends BaseAdapter<BusinessList, BusinessAdapter.CapitalFlowViewHolder> {
 
-	public CapitalFlowAdapter(Context context) {
+	public BusinessAdapter(Context context) {
 		super(context);
 	}
 
 	@NonNull
 	@Override
 	public CapitalFlowViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-		View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_capital_flow, parent, false);
+		View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_business, parent, false);
 		return new CapitalFlowViewHolder(this, view);
 	}
 
-	class CapitalFlowViewHolder extends BaseViewHolder<CapitalFlow> {
+	class CapitalFlowViewHolder extends BaseViewHolder<BusinessList> {
 
 		public CapitalFlowViewHolder(BaseAdapter adapter, View itemView) {
 			super(adapter, itemView);
 		}
 
 		@Override
-		public void bindData(CapitalFlow data) {
+		public void bindData(BusinessList data) {
 
 		}
 	}

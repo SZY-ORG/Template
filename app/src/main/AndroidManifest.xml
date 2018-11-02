@@ -106,10 +106,10 @@
 			android:name=".components.web.WebViewActivity"
 			android:screenOrientation="portrait" />
 		<activity
-			android:name=".components.personalcenter.finance.CapitalFlowListActivity"
+			android:name=".components.personalcenter.finance.BusinessListActivity"
 			android:screenOrientation="portrait" />
 		<activity
-			android:name=".components.personalcenter.finance.CapitalFlowDetailActivity"
+			android:name=".components.personalcenter.finance.BusinessDetailActivity"
 			android:screenOrientation="portrait" />
 		<activity
 			android:name=".components.personalcenter.finance.WithdrawActivity"
@@ -125,6 +125,15 @@
 			android:screenOrientation="portrait" />
 		<activity
 			android:name=".components.personalcenter.FinanceInfoActivity"
+			android:screenOrientation="portrait" />
+		<activity
+			android:name=".components.personalcenter.finance.OutAccountMoneyActivity"
+			android:screenOrientation="portrait" />
+		<activity
+			android:name=".components.personalcenter.finance.FrozenMoneyActivity"
+			android:screenOrientation="portrait" />
+		<activity
+			android:name=".components.personalcenter.finance.UnsettlementMoneyActivity"
 			android:screenOrientation="portrait" />
 		<activity
 			android:name=".components.personalcenter.AboutUsActivity"

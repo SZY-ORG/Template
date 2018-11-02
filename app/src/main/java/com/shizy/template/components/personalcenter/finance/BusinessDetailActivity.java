@@ -17,7 +17,7 @@ import butterknife.OnClick;
  * @author dahu
  * time 2018/10/31 14:43.
  */
-public class CapitalFlowDetailActivity extends BaseTitleActivity {
+public class BusinessDetailActivity extends BaseTitleActivity {
 
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState) {

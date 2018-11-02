@@ -9,7 +9,7 @@
 		layout="@layout/common_title" />
 	
 	<LinearLayout android:layout_width="match_parent"
-		android:layout_height="150dp"
+		android:layout_height="120dp"
 		android:background="@color/white"
 		android:orientation="vertical">
 		<TextView style="@style/Text.F16.Black"
@@ -28,33 +28,82 @@
 	
 	<LinearLayout android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_marginTop="30dp"
+		android:layout_margin="@dimen/vertical_margin"
 		android:orientation="horizontal">
 		
-		<Button android:id="@+id/business_list"
+		<Button android:id="@+id/frozen_money"
 			android:layout_width="0dp"
 			android:layout_height="90dp"
 			android:layout_marginLeft="@dimen/horizontal_margin"
 			android:layout_weight="1"
 			android:background="@color/white"
-			android:text="@string/business_list"/>
+			android:text="@string/frozen_money" />
 		
 		<Button android:id="@+id/withdraw"
 			android:layout_width="0dp"
 			android:layout_height="90dp"
-			android:layout_marginLeft="@dimen/horizontal_margin"
 			android:layout_weight="1"
 			android:background="@color/white"
-			android:text="@string/withdraw_money"/>
-		
-		<Button android:id="@+id/bankcard"
-			android:layout_width="0dp"
+			android:text="@string/withdraw_money" />
+	
+	</LinearLayout>
+	
+	<RelativeLayout android:id="@+id/business_list"
+		android:layout_width="match_parent"
+		android:layout_height="50dp"
+		android:background="@color/white"
+		android:paddingLeft="@dimen/horizontal_margin"
+		android:paddingRight="@dimen/horizontal_margin">
+		<TextView
+			android:layout_width="match_parent"
 			android:layout_height="90dp"
 			android:layout_marginLeft="@dimen/horizontal_margin"
-			android:layout_marginRight="@dimen/horizontal_margin"
-			android:layout_weight="1"
-			android:background="@color/white"
+			android:gravity="center_vertical"
+			android:text="@string/business_list" />
+		<ImageView android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"
+			android:src="@drawable/arrow_right" />
+	</RelativeLayout>
+	<View style="@style/Divider.Horizontal" />
+	
+	<RelativeLayout android:id="@+id/deposit"
+		android:layout_width="match_parent"
+		android:layout_height="50dp"
+		android:background="@color/white"
+		android:paddingLeft="@dimen/horizontal_margin"
+		android:paddingRight="@dimen/horizontal_margin">
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="90dp"
+			android:layout_marginLeft="@dimen/horizontal_margin"
+			android:gravity="center_vertical"
+			android:text="@string/deposit" />
+		<ImageView android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"
+			android:src="@drawable/arrow_right" />
+	</RelativeLayout>
+	
+	<RelativeLayout android:id="@+id/bankcard"
+		android:layout_width="match_parent"
+		android:layout_height="50dp"
+		android:background="@color/white"
+		android:paddingLeft="@dimen/horizontal_margin"
+		android:paddingRight="@dimen/horizontal_margin">
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="90dp"
+			android:layout_marginLeft="@dimen/horizontal_margin"
+			android:gravity="center_vertical"
 			android:text="@string/bankcard" />
-	</LinearLayout>
+		<ImageView android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"
+			android:src="@drawable/arrow_right" />
+	</RelativeLayout>
 
 </LinearLayout>
