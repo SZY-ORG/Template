@@ -4,6 +4,8 @@
 	<color name="colorPrimaryDark">#303F9F</color>
 	<color name="colorAccent">#FF4081</color>
 
+	<color name="hint">#9c9c9c</color>
+
 	<color name="app_background">#F5F5F5</color>
 
 	<color name="white">#FFFFFF</color>

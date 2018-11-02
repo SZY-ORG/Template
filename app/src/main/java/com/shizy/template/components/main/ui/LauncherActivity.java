@@ -27,8 +27,8 @@ public class LauncherActivity extends BaseActivity {
 	private Runnable mEnterApp = new Runnable() {
 		@Override
 		public void run() {
-//			toLogin();
-			toMain();
+			toLogin();
+//			toMain();
 		}
 	};
 

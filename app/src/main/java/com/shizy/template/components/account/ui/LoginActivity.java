@@ -2,6 +2,7 @@ package com.shizy.template.components.account.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -13,6 +14,7 @@ import com.shizy.template.R;
 import com.shizy.template.common.utils.ClickUtil;
 import com.shizy.template.common.utils.RxJavaUtil;
 import com.shizy.template.common.utils.UIUtil;
+import com.shizy.template.common.utils.VerifyUtil;
 import com.shizy.template.common.view.activity.BaseActivity;
 import com.shizy.template.components.account.api.IAccountService;
 import com.shizy.template.components.account.bean.User;
@@ -65,7 +67,7 @@ public class LoginActivity extends BaseActivity {
 		return false;
 	}
 
-	@OnClick({R.id.btn_login, R.id.tv_sign_up})
+	@OnClick({R.id.btn_login, R.id.tv_forget_password, R.id.tv_sign_up})
 	protected void onClick(View view) {
 		if (!ClickUtil.isValid()) {
 			return;
@@ -73,6 +75,9 @@ public class LoginActivity extends BaseActivity {
 		switch (view.getId()) {
 			case R.id.btn_login:
 				attemptLogin();
+				break;
+			case R.id.tv_forget_password:
+				forgetPassword();
 				break;
 			case R.id.tv_sign_up:
 				toSignUp();
@@ -88,17 +93,17 @@ public class LoginActivity extends BaseActivity {
 		mMobileEdit.setError(null);
 		mPasswordEdit.setError(null);
 
-		String mobile = mMobileEdit.getText().toString();
+		String number = mMobileEdit.getText().toString();
 		String password = mPasswordEdit.getText().toString();
 
 		boolean cancel = false;
 		View focusView = null;
 
-		if (TextUtils.isEmpty(mobile)) {
+		if (TextUtils.isEmpty(number)) {
 			mMobileEdit.setError(getString(R.string.error_mobile_empty));
 			focusView = mMobileEdit;
 			cancel = true;
-		} else if (!isMobileValid(mobile)) {
+		} else if (!VerifyUtil.isMobileNumber(number)) {
 			mMobileEdit.setError(getString(R.string.error_mobile_format));
 			focusView = mMobileEdit;
 			cancel = true;
@@ -106,7 +111,7 @@ public class LoginActivity extends BaseActivity {
 			mPasswordEdit.setError(getString(R.string.error_password_empty));
 			focusView = mPasswordEdit;
 			cancel = true;
-		} else if (!isPasswordValid(password)) {
+		} else if (!VerifyUtil.isValidPassword(password)) {
 			mPasswordEdit.setError(getString(R.string.error_password_invalid));
 			focusView = mPasswordEdit;
 			cancel = true;
@@ -116,19 +121,16 @@ public class LoginActivity extends BaseActivity {
 			focusView.requestFocus();
 		} else {
 			UIUtil.hideSoftInput(getCurrentFocus());
-//			login(mobile, password);
+//			login(number, password);
 			toMain();
 		}
 	}
 
-	private boolean isMobileValid(String mobile) {
-		//TODO: 添加规则
-		return mobile.trim().length() == 11;
-	}
-
-	private boolean isPasswordValid(String password) {
-		//TODO: 添加规则
-		return password.trim().length() >= 6;
+	private void forgetPassword() {
+		new AlertDialog.Builder(this)
+				.setView(R.layout.dialog_forget_password)
+				.create()
+				.show();
 	}
 
 	private void toMain() {
@@ -140,11 +142,11 @@ public class LoginActivity extends BaseActivity {
 		startActivityForResult(new Intent(LoginActivity.this, SignUpActivity.class), RC_SIGN_UP);
 	}
 
-	private void login(String mobile, String password) {
+	private void login(String number, String password) {
 		isRequesting = true;
 
 		ServiceFactory.getService(IAccountService.class)
-				.login(mobile, password)
+				.login(number, password)
 				.compose(RxJavaUtil.<ResponseData<User>>mainSchedulers())
 				.as(this.<ResponseData<User>>bindLifecycle())
 				.subscribe(new ProgressDialogObserver<User>(this) {
@@ -155,8 +157,7 @@ public class LoginActivity extends BaseActivity {
 
 					@Override
 					protected void onFailure(ResponseException e) {
-						mPasswordEdit.setError(e.getMsg());
-						mPasswordEdit.requestFocus();
+						UIUtil.showToast(e.getMsg());
 					}
 
 					@Override

@@ -34,6 +34,7 @@
 	<string name="input_mobile">请输入手机号</string>
 	<string name="input_password">请输入密码</string>
 	<string name="forget_password">忘记密码？</string>
+	<string name="msg_forget_password">忘记密码请联系：\n12345678901</string>
 	<string name="error_mobile_empty">手机号不能为空</string>
 	<string name="error_mobile_format">手机号格式错误</string>
 	<string name="error_password_empty">密码不能为空</string>
