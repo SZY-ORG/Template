@@ -3,16 +3,6 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent">
 
-	<TextView
-		android:id="@+id/tv_sign_up"
-		android:layout_width="wrap_content"
-		android:layout_height="@dimen/title_bar_height"
-		android:layout_gravity="right"
-		android:gravity="center"
-		android:paddingRight="19dp"
-		android:text="@string/sign_up"
-		android:textAppearance="@style/LinkText" />
-
 	<ScrollView
 		android:id="@+id/login_form"
 		android:layout_width="match_parent"
@@ -82,15 +72,25 @@
 				android:text="@string/login"
 				android:textStyle="bold" />
 
+			<TextView
+				android:id="@+id/tv_forget_password"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_horizontal|bottom"
+				android:layout_marginTop="30dp"
+				android:text="@string/forget_password"
+				android:textAppearance="@style/LinkText" />
 		</LinearLayout>
 	</ScrollView>
 
 	<TextView
-		android:id="@+id/tv_forget_password"
+		android:id="@+id/tv_sign_up"
 		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_gravity="center_horizontal|bottom"
-		android:layout_marginBottom="30dp"
-		android:text="@string/forget_password"
+		android:layout_height="@dimen/title_bar_height"
+		android:layout_gravity="right"
+		android:gravity="center"
+		android:paddingRight="19dp"
+		android:text="@string/sign_up"
 		android:textAppearance="@style/LinkText" />
+
 </FrameLayout>

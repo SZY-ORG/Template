@@ -1,4 +1,4 @@
-package com.shizy.template.components.web;
+package com.shizy.template.components.common.ui;
 
 import android.app.Activity;
 import android.app.ProgressDialog;

@@ -103,7 +103,7 @@
 				android:orientation="horizontal">
 
 				<TextView
-					android:layout_width="match_parent"
+					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:text="@string/residential_city"
 					android:textAppearance="@style/Text.F16" />
@@ -111,12 +111,17 @@
 				<TextView
 					android:id="@+id/tv_city"
 					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
+					android:layout_height="match_parent"
+					android:drawableRight="@drawable/arrow_right"
+					android:gravity="center_vertical|right"
+					android:hint="@string/hint_residential_city"
 					android:textAppearance="@style/Text.F16" />
 			</LinearLayout>
 
+			<View style="@style/Divider.Horizontal" />
+
 			<Button
-				android:id="@+id/btn_login"
+				android:id="@+id/btn_sign_up"
 				style="?android:textAppearanceSmall"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"

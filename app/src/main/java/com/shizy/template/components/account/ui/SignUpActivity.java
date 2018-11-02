@@ -1,18 +1,23 @@
 package com.shizy.template.components.account.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.shizy.template.R;
+import com.shizy.template.common.bean.City;
 import com.shizy.template.common.utils.ClickUtil;
 import com.shizy.template.common.utils.RxJavaUtil;
 import com.shizy.template.common.utils.UIUtil;
 import com.shizy.template.common.view.activity.BaseTitleActivity;
 import com.shizy.template.components.account.api.IAccountService;
 import com.shizy.template.components.account.bean.User;
+import com.shizy.template.components.common.ui.list.SelectListActivity;
+import com.shizy.template.components.common.ui.list.SelectListDataFactory;
 import com.shizy.template.net.ResponseException;
 import com.shizy.template.net.ServiceFactory;
 import com.shizy.template.net.progress.ProgressDialogObserver;
@@ -34,8 +39,19 @@ public class SignUpActivity extends BaseTitleActivity {
 	protected EditText mPasswordEdit;
 	@BindView(R.id.repeat_password)
 	protected EditText mRepeatPasswordEdit;
+	@BindView(R.id.tv_city)
+	protected TextView mCityTv;
 
 	private boolean isRequesting = false;
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if (resultCode == RESULT_OK) {
+			City city = (City) data.getSerializableExtra(SelectListDataFactory.Type.OPEN_CITY);
+			mCityTv.setText(city.getName());
+		}
+	}
 
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,12 +61,26 @@ public class SignUpActivity extends BaseTitleActivity {
 		setTitle(R.string.sign_up);
 	}
 
-	@OnClick(R.id.btn_login)
+	@OnClick({R.id.layout_city, R.id.btn_sign_up})
 	protected void onClick(View view) {
 		if (!ClickUtil.isValid()) {
 			return;
 		}
-		attemptSignUp();
+		switch (view.getId()) {
+			case R.id.layout_city:
+				chooseCity();
+				break;
+			case R.id.btn_sign_up:
+				attemptSignUp();
+				break;
+		}
+	}
+
+	private void chooseCity() {
+		SelectListActivity.Option option = new SelectListActivity.Option();
+		option.setTitle(getString(R.string.residential_city));
+		option.setType(SelectListDataFactory.Type.OPEN_CITY);
+		SelectListActivity.launchForResult(this, option, 0);
 	}
 
 	private void attemptSignUp() {
