@@ -12,7 +12,7 @@
 	</style>
 
 	<style name="Divider">
-		<item name="android:background">@color/gray</item>
+		<item name="android:background">@color/divider</item>
 	</style>
 
 	<style name="Divider.Horizontal">
@@ -25,6 +25,11 @@
 	</style>
 
 	<style name="EditText">
+		<item name="android:layout_width">match_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:background">@drawable/bg_textfield</item>
+		<item name="android:paddingTop">12dp</item>
+		<item name="android:paddingBottom">12dp</item>
 		<item name="android:textAppearance">@style/Text.F18.Black</item>
 		<item name="android:textColorHint">@color/hint</item>
 	</style>

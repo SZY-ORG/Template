@@ -1,21 +1,31 @@
 package com.shizy.template.components.account.ui;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.SpannableString;
+import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.shizy.template.R;
 import com.shizy.template.common.bean.City;
+import com.shizy.template.common.constant.PathConstant;
+import com.shizy.template.common.constant.ServerHost;
 import com.shizy.template.common.utils.ClickUtil;
 import com.shizy.template.common.utils.RxJavaUtil;
 import com.shizy.template.common.utils.UIUtil;
+import com.shizy.template.common.utils.VerifyUtil;
 import com.shizy.template.common.view.activity.BaseTitleActivity;
+import com.shizy.template.common.widget.NoUnderlineClickableSpan;
 import com.shizy.template.components.account.api.IAccountService;
 import com.shizy.template.components.account.bean.User;
+import com.shizy.template.components.common.ui.WebViewActivity;
 import com.shizy.template.components.common.ui.list.SelectListActivity;
 import com.shizy.template.components.common.ui.list.SelectListDataFactory;
 import com.shizy.template.net.ResponseException;
@@ -41,15 +51,18 @@ public class SignUpActivity extends BaseTitleActivity {
 	protected EditText mRepeatPasswordEdit;
 	@BindView(R.id.tv_city)
 	protected TextView mCityTv;
+	@BindView(R.id.tv_agreement)
+	protected TextView mAgreementTv;
 
+	private City mCity;
 	private boolean isRequesting = false;
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 		if (resultCode == RESULT_OK) {
-			City city = (City) data.getSerializableExtra(SelectListDataFactory.Type.OPEN_CITY);
-			mCityTv.setText(city.getName());
+			mCity = (City) data.getSerializableExtra(SelectListDataFactory.Type.OPEN_CITY);
+			mCityTv.setText(mCity.getName());
 		}
 	}
 
@@ -59,6 +72,25 @@ public class SignUpActivity extends BaseTitleActivity {
 		setContentView(R.layout.activity_sign_up);
 
 		setTitle(R.string.sign_up);
+		initAgreement();
+	}
+
+	private void initAgreement() {
+		String content = getString(R.string.sign_up_driver_agreement);
+		int start = content.indexOf("《") + 1;
+		int end = content.indexOf("》");
+
+		SpannableString ss = new SpannableString(content);
+		ss.setSpan(new NoUnderlineClickableSpan() {
+			@Override
+			public void onClick(@NonNull View widget) {
+				openAgreement();
+			}
+		}, start, end, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+
+		mAgreementTv.setText(ss);
+		mAgreementTv.setMovementMethod(LinkMovementMethod.getInstance());
+		mAgreementTv.setHighlightColor(Color.TRANSPARENT);
 	}
 
 	@OnClick({R.id.layout_city, R.id.btn_sign_up})
@@ -74,6 +106,10 @@ public class SignUpActivity extends BaseTitleActivity {
 				attemptSignUp();
 				break;
 		}
+	}
+
+	private void openAgreement() {
+		WebViewActivity.launch(this, getString(R.string.driver_agreement), ServerHost.getServerAddress() + PathConstant.PATH_DRIVER_AGREEMENT);
 	}
 
 	private void chooseCity() {
@@ -103,13 +139,18 @@ public class SignUpActivity extends BaseTitleActivity {
 			mNameEdit.requestFocus();
 			return;
 		}
+		if (!VerifyUtil.isName(name)) {
+			mNameEdit.setError(getString(R.string.error_name_empty));
+			mNameEdit.requestFocus();
+			return;
+		}
 
 		if (TextUtils.isEmpty(mobile)) {
 			mMobileEdit.setError(getString(R.string.error_mobile_empty));
 			mMobileEdit.requestFocus();
 			return;
 		}
-		if (!isMobileValid(mobile)) {
+		if (!VerifyUtil.isMobileNumber(mobile)) {
 			mMobileEdit.setError(getString(R.string.error_mobile_format));
 			mMobileEdit.requestFocus();
 			return;
@@ -120,15 +161,19 @@ public class SignUpActivity extends BaseTitleActivity {
 			mPasswordEdit.requestFocus();
 			return;
 		}
-		if (!isPasswordValid(password)) {
+		if (!VerifyUtil.isValidPassword(password)) {
 			mPasswordEdit.setError(getString(R.string.error_password_invalid));
 			mPasswordEdit.requestFocus();
 			return;
 		}
 
 		if (TextUtils.equals(password, repeatPassword)) {
-			mPasswordEdit.setError(getString(R.string.error_repeat_password));
-			mPasswordEdit.requestFocus();
+			mRepeatPasswordEdit.setError(getString(R.string.error_repeat_password));
+			mRepeatPasswordEdit.requestFocus();
+			return;
+		}
+		if (mCity == null) {
+			UIUtil.showToast(R.string.error_residential_city);
 			return;
 		}
 
@@ -136,22 +181,15 @@ public class SignUpActivity extends BaseTitleActivity {
 		signUp(name, mobile, password);
 	}
 
-	private void goBack() {
-		setResult(RESULT_OK);
+	private void setResult(String mobile, String password) {
+		Intent data = new Intent();
+		data.putExtra(LoginActivity.EXTRA_MOBILE, mobile);
+		data.putExtra(LoginActivity.EXTRA_PASSWORD, password);
+		setResult(RESULT_OK, data);
 		finish();
 	}
 
-	private boolean isMobileValid(String mobile) {
-		//TODO: 添加规则
-		return mobile.trim().length() == 11;
-	}
-
-	private boolean isPasswordValid(String password) {
-		//TODO: 添加规则
-		return password.trim().length() >= 6;
-	}
-
-	private void signUp(String name, String mobile, String password) {
+	private void signUp(final String name, final String mobile, final String password) {
 		isRequesting = true;
 
 		ServiceFactory.getService(IAccountService.class)
@@ -162,7 +200,7 @@ public class SignUpActivity extends BaseTitleActivity {
 					@Override
 					protected void onSuccess(ResponseData<User> responseData) {
 						UIUtil.showToast(responseData.getMsg());
-						goBack();
+						setResult(mobile, password);
 					}
 
 					@Override

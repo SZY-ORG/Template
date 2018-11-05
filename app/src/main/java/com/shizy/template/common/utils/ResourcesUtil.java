@@ -6,12 +6,17 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DimenRes;
 import android.support.annotation.DrawableRes;
+import android.support.annotation.IntegerRes;
 import android.support.annotation.StringRes;
 import android.support.v4.content.ContextCompat;
 
 public class ResourcesUtil {
 
 	private static Resources sResources = AppUtil.getResources();
+
+	public static int getInteger(@IntegerRes int id) {
+		return sResources.getInteger(id);
+	}
 
 	public static String getString(@StringRes int id) {
 		return sResources.getString(id);

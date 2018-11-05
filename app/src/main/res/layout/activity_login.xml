@@ -32,18 +32,15 @@
 
 			<android.support.design.widget.TextInputLayout
 				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				app:counterEnabled="true"
-				app:counterMaxLength="11">
+				android:layout_height="wrap_content">
 
 				<EditText
 					android:id="@+id/mobile"
 					style="@style/EditText"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
 					android:hint="@string/input_mobile"
 					android:imeOptions="actionNext"
 					android:inputType="phone"
+					android:maxLength="@integer/mobile_number_len"
 					android:maxLines="1"
 					android:singleLine="true" />
 
@@ -57,13 +54,12 @@
 				<EditText
 					android:id="@+id/password"
 					style="@style/EditText"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
 					android:hint="@string/input_password"
 					android:imeActionId="6"
 					android:imeActionLabel="@string/login"
 					android:imeOptions="actionUnspecified"
 					android:inputType="textPassword"
+					android:maxLength="@integer/password_len_max"
 					android:maxLines="1"
 					android:singleLine="true" />
 

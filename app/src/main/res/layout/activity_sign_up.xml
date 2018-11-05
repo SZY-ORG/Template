@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical">
@@ -16,9 +17,9 @@
 			android:focusable="true"
 			android:focusableInTouchMode="true"
 			android:orientation="vertical"
-			android:paddingLeft="@dimen/horizontal_margin"
+			android:paddingLeft="24dp"
 			android:paddingTop="@dimen/horizontal_margin"
-			android:paddingRight="@dimen/horizontal_margin"
+			android:paddingRight="24dp"
 			android:paddingBottom="@dimen/vertical_margin">
 
 			<TextView
@@ -35,11 +36,11 @@
 
 				<EditText
 					android:id="@+id/name"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
+					style="@style/EditText"
 					android:hint="@string/input_name"
 					android:imeOptions="actionNext"
 					android:inputType="text"
+					android:maxLength="@integer/name_len_max"
 					android:maxLines="1"
 					android:singleLine="true" />
 
@@ -51,11 +52,11 @@
 
 				<EditText
 					android:id="@+id/mobile"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
+					style="@style/EditText"
 					android:hint="@string/input_mobile"
 					android:imeOptions="actionNext"
 					android:inputType="phone"
+					android:maxLength="@integer/mobile_number_len"
 					android:maxLines="1"
 					android:singleLine="true" />
 
@@ -63,15 +64,16 @@
 
 			<android.support.design.widget.TextInputLayout
 				android:layout_width="match_parent"
-				android:layout_height="wrap_content">
+				android:layout_height="wrap_content"
+				app:passwordToggleEnabled="true">
 
 				<EditText
 					android:id="@+id/password"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
+					style="@style/EditText"
 					android:hint="@string/input_password"
 					android:imeOptions="actionNext"
 					android:inputType="textPassword"
+					android:maxLength="@integer/password_len_max"
 					android:maxLines="1"
 					android:singleLine="true" />
 
@@ -79,17 +81,16 @@
 
 			<android.support.design.widget.TextInputLayout
 				android:layout_width="match_parent"
-				android:layout_height="wrap_content">
+				android:layout_height="wrap_content"
+				app:passwordToggleEnabled="true">
 
 				<EditText
 					android:id="@+id/repeat_password"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
+					style="@style/EditText"
 					android:hint="@string/confirm_password"
-					android:imeActionId="6"
-					android:imeActionLabel="@string/sign_up"
-					android:imeOptions="actionUnspecified"
+					android:imeOptions="actionDone"
 					android:inputType="textPassword"
+					android:maxLength="@integer/password_len_max"
 					android:maxLines="1"
 					android:singleLine="true" />
 
@@ -106,7 +107,9 @@
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:text="@string/residential_city"
-					android:textAppearance="@style/Text.F16" />
+					android:textAppearance="@style/Text.F16"
+					android:textColor="@color/hint"
+					android:textSize="@dimen/font_18" />
 
 				<TextView
 					android:id="@+id/tv_city"
@@ -115,19 +118,17 @@
 					android:drawableRight="@drawable/arrow_right"
 					android:gravity="center_vertical|right"
 					android:hint="@string/hint_residential_city"
-					android:textAppearance="@style/Text.F16" />
+					android:textAppearance="@style/Text.F18.Black"
+					android:textColorHint="@color/hint" />
 			</LinearLayout>
 
 			<View style="@style/Divider.Horizontal" />
 
 			<Button
 				android:id="@+id/btn_sign_up"
-				style="?android:textAppearanceSmall"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginTop="16dp"
-				android:text="@string/sign_up"
-				android:textStyle="bold" />
+				style="@style/SingleRoundedBtn"
+				android:layout_marginTop="50dp"
+				android:text="@string/sign_up" />
 
 			<TextView
 				android:id="@+id/tv_agreement"

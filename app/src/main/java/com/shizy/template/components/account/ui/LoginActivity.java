@@ -35,6 +35,9 @@ public class LoginActivity extends BaseActivity {
 
 	private static final int RC_SIGN_UP = 0x1;
 
+	public static final String EXTRA_MOBILE = "mobile";
+	public static final String EXTRA_PASSWORD = "password";
+
 	@BindView(R.id.mobile)
 	protected EditText mMobileEdit;
 	@BindView(R.id.password)
@@ -43,12 +46,18 @@ public class LoginActivity extends BaseActivity {
 	protected View mLoginFormView;
 
 	private boolean isRequesting = false;
+	private boolean isFromSignUp = false;// 注册成功后跳回
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 		if (resultCode == RESULT_OK) {
-			toMain();
+			String mobile = data.getStringExtra(EXTRA_MOBILE);
+			String password = data.getStringExtra(EXTRA_PASSWORD);
+			mMobileEdit.setText(mobile);
+			mPasswordEdit.setText(password);
+			isFromSignUp = true;
+			attemptLogin();
 		}
 	}
 

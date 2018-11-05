@@ -2,6 +2,8 @@ package com.shizy.template.common.utils;
 
 import android.text.TextUtils;
 
+import com.shizy.template.R;
+
 /**
  * 校验工具类
  */
@@ -15,6 +17,22 @@ public class VerifyUtil {
 	private static final char[] ID_NUMBER_CHECK_CODE = {
 			'1', '0', 'X', '9', '8', '7', '6', '5', '4', '3', '2'
 	};
+
+	/**
+	 * 检验姓名
+	 *
+	 * @param name
+	 * @return
+	 */
+	public static boolean isName(String name) {
+		if (TextUtils.isEmpty(name)) {
+			return false;
+		}
+		int min = ResourcesUtil.getInteger(R.integer.name_len_min);
+		int max = ResourcesUtil.getInteger(R.integer.name_len_max);
+		int len = name.length();
+		return len >= min && len <= max;
+	}
 
 	/**
 	 * 是否为手机号
@@ -39,8 +57,10 @@ public class VerifyUtil {
 		if (TextUtils.isEmpty(password)) {
 			return false;
 		}
+		int min = ResourcesUtil.getInteger(R.integer.password_len_min);
+		int max = ResourcesUtil.getInteger(R.integer.password_len_max);
 		int len = password.length();
-		return len >= 6 && len <= 12;
+		return len >= min && len <= max;
 	}
 
 	/**
