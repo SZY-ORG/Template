@@ -1,6 +1,8 @@
 package com.shizy.template.common.utils;
 
 import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.annotation.StringRes;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -60,6 +62,18 @@ public class UIUtil {
 		if (imm.isActive()) {
 			imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
 		}
+	}
+
+	public static void runOnUIThread(Runnable run) {
+		if (isRunInMainThread()) {
+			run.run();
+		} else {
+			new Handler().post(run);
+		}
+	}
+
+	public static boolean isRunInMainThread() {
+		return Looper.myLooper() == Looper.getMainLooper();
 	}
 
 }

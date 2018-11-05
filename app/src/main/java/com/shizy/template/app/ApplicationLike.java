@@ -144,7 +144,7 @@ public class ApplicationLike extends DefaultApplicationLike {
 
 		// 这里实现SDK初始化，appId替换成你的在Bugly平台申请的appId
 		BuglyStrategy strategy = new BuglyStrategy();
-		// TODO: 2018/10/24
+		// TODO: 2018/10/24 App Channel 需要修改成正式渠道
 //		strategy.setAppChannel(AppUtil.getMarketChannel(getApplication()));
 //		// 调试时，将第三个参数改为true
 		Bugly.init(getApplication(), "appId", BuildConfig.DEBUG, strategy);

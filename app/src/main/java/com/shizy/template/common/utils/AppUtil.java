@@ -82,4 +82,15 @@ public class AppUtil {
 		}
 		return -1;
 	}
+
+	/**
+	 * 是否是正式环境
+	 * todo 这个地方需要添加逻辑
+	 * @return
+	 */
+	public static boolean isProductEnv() {
+
+		return false;
+	}
+
 }
