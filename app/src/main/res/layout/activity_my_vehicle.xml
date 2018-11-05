@@ -1,9 +1,269 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<RelativeLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent">
 	
-	<include layout="@layout/common_title" />
+	<include android:id="@+id/title_view"
+		layout="@layout/common_title" />
+	
+	<ScrollView android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_below="@id/title_view"
+		android:layout_marginBottom="82dp"
+		android:background="@color/white"
+		android:scrollbars="none">
+		<LinearLayout android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:paddingLeft="@dimen/horizontal_margin"
+		>
+			<RelativeLayout android:layout_width="match_parent"
+				android:layout_height="@dimen/title_bar_height"
+				android:paddingRight="@dimen/horizontal_margin"
+			>
+				<TextView style="@style/Text.F16.Black"
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:gravity="center_vertical"
+					android:text="@string/vehicle_number"
+				/>
+				<EditText android:id="@+id/vehicle_number"
+					style="@style/Text.F16.Black"
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:layout_alignParentRight="true"
+					android:layout_marginLeft="120dp"
+					android:gravity="center_vertical"
+					android:hint="@string/vehicle_number"
+					android:singleLine="true"
+				/>
+			</RelativeLayout>
+			<View style="@style/Divider.Horizontal" />
+			
+			<RelativeLayout
+				android:id="@+id/vehicle_type_layout"
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/title_bar_height"
+				android:paddingRight="@dimen/horizontal_margin"
+			>
+				<TextView style="@style/Text.F16.Black"
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:gravity="center_vertical"
+					android:text="@string/vehicle_type"
+				/>
+				<ImageView android:id="@+id/vehicle_type_arrow"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentRight="true"
+					android:layout_centerVertical="true"
+					android:src="@drawable/arrow_right" />
+				<TextView android:id="@+id/vehicle_type"
+					style="@style/Text.F16.Black"
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:layout_marginLeft="120dp"
+					android:layout_toLeftOf="@id/vehicle_type_arrow"
+					android:gravity="center_vertical"
+					android:hint="@string/vehicle_type"
+					android:singleLine="true"
+				/>
+			</RelativeLayout>
+			<View style="@style/Divider.Horizontal" />
+			
+			<RelativeLayout android:layout_width="match_parent"
+				android:layout_height="@dimen/title_bar_height"
+				android:paddingRight="@dimen/horizontal_margin"
+			>
+				<TextView style="@style/Text.F16.Black"
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:gravity="center_vertical"
+					android:text="@string/vehicle_reg_date"
+				/>
+				<EditText android:id="@+id/vehicle_reg_date"
+					style="@style/Text.F16.Black"
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:layout_alignParentRight="true"
+					android:layout_marginLeft="120dp"
+					android:gravity="center_vertical"
+					android:hint="@string/vehicle_reg_date"
+					android:singleLine="true"
+				/>
+			</RelativeLayout>
+			<View style="@style/Divider.Horizontal" />
+			
+			<RelativeLayout android:layout_width="match_parent"
+				android:layout_height="@dimen/title_bar_height"
+				android:paddingRight="@dimen/horizontal_margin"
+			>
+				<TextView style="@style/Text.F16.Black"
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:gravity="center_vertical"
+					android:text="@string/vehicle_owner"
+				/>
+				<EditText android:id="@+id/vehicle_owner"
+					style="@style/Text.F16.Black"
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:layout_alignParentRight="true"
+					android:layout_marginLeft="120dp"
+					android:gravity="center_vertical"
+					android:hint="@string/vehicle_owner"
+					android:singleLine="true"
+				/>
+			</RelativeLayout>
+			<View style="@style/Divider.Horizontal" />
+			
+			<RelativeLayout android:layout_width="match_parent"
+				android:layout_height="@dimen/title_bar_height"
+				android:paddingRight="@dimen/horizontal_margin"
+			>
+				<TextView style="@style/Text.F16.Black"
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:gravity="center_vertical"
+					android:text="@string/vehicle_model"
+				/>
+				<EditText android:id="@+id/vehicle_model"
+					style="@style/Text.F16.Black"
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:layout_alignParentRight="true"
+					android:layout_marginLeft="120dp"
+					android:gravity="center_vertical"
+					android:hint="@string/vehicle_model"
+					android:singleLine="true"
+				/>
+			</RelativeLayout>
+			<View style="@style/Divider.Horizontal" />
+			
+			<RelativeLayout android:layout_width="match_parent"
+				android:layout_height="@dimen/title_bar_height"
+				android:paddingRight="@dimen/horizontal_margin"
+			>
+				<TextView style="@style/Text.F16.Black"
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:gravity="center_vertical"
+					android:text="@string/vehicle_recognition_code"
+				/>
+				<EditText android:id="@+id/vehicle_recognition_code"
+					style="@style/Text.F16.Black"
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:layout_alignParentRight="true"
+					android:layout_marginLeft="120dp"
+					android:gravity="center_vertical"
+					android:hint="@string/vehicle_recognition_code"
+					android:singleLine="true"
+				/>
+			</RelativeLayout>
+			<View style="@style/Divider.Horizontal" />
+			
+			<RelativeLayout android:layout_width="match_parent"
+				android:layout_height="@dimen/title_bar_height"
+				android:paddingRight="@dimen/horizontal_margin"
+			>
+				<TextView style="@style/Text.F16.Black"
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:gravity="center_vertical"
+					android:text="@string/vehicle_engine_code"
+				/>
+				<EditText android:id="@+id/vehicle_engine_code"
+					style="@style/Text.F16.Black"
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:layout_alignParentRight="true"
+					android:layout_marginLeft="120dp"
+					android:gravity="center_vertical"
+					android:hint="@string/vehicle_engine_code"
+					android:singleLine="true"
+				/>
+			</RelativeLayout>
+			<View style="@style/Divider.Horizontal" />
+			
+			<RelativeLayout android:layout_width="match_parent"
+				android:layout_height="@dimen/title_bar_height"
+				android:paddingRight="@dimen/horizontal_margin"
+			>
+				<TextView style="@style/Text.F16.Black"
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:gravity="center_vertical"
+					android:text="@string/date_of_production"
+				/>
+				<EditText android:id="@+id/date_of_production"
+					style="@style/Text.F16.Black"
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:layout_alignParentRight="true"
+					android:layout_marginLeft="120dp"
+					android:gravity="center_vertical"
+					android:hint="@string/vehicle_number"
+					android:singleLine="true"
+				/>
+			</RelativeLayout>
+			<View style="@style/Divider.Horizontal" />
+			
+			<RelativeLayout android:layout_width="match_parent"
+				android:layout_height="@dimen/title_bar_height"
+				android:paddingRight="@dimen/horizontal_margin"
+			>
+				<TextView style="@style/Text.F16.Black"
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:gravity="center_vertical"
+					android:text="@string/vehicle_license_validity_date"
+				/>
+				<EditText android:id="@+id/driving_license_validity_date"
+					style="@style/Text.F16.Black"
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:layout_alignParentRight="true"
+					android:layout_marginLeft="120dp"
+					android:gravity="center_vertical"
+					android:hint="@string/vehicle_license_validity_date"
+					android:singleLine="true"
+				/>
+			</RelativeLayout>
+			<View style="@style/Divider.Horizontal" />
+			
+			<TextView style="@style/Text.F16.Black"
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:gravity="center_vertical"
+				android:text="@string/vehicle_license_pic"
+			/>
+			<RelativeLayout android:layout_width="200dp"
+				android:layout_height="120dp"
+				android:layout_gravity="center_horizontal"
+				android:paddingRight="@dimen/horizontal_margin"
+			>
+				<ImageView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:gravity="center_vertical"
+					android:src="@drawable/ic_launcher_background"
+				/>
+			</RelativeLayout>
+		
+		</LinearLayout>
+	</ScrollView>
+	
+	<Button android:id="@+id/confirm_to_submit"
+		style="@style/Text.F16.White"
+		android:layout_width="120dp"
+		android:layout_height="50dp"
+		android:layout_alignParentBottom="true"
+		android:layout_centerHorizontal="true"
+		android:layout_marginBottom="@dimen/vertical_margin"
+		android:layout_marginTop="@dimen/vertical_margin"
+		android:background="@color/blue"
+		android:text="@string/confirm_to_submit" />
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

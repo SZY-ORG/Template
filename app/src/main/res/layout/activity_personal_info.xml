@@ -17,7 +17,7 @@
 			android:layout_width="wrap_content"
 			android:layout_height="match_parent"
 			android:gravity="center"
-			android:text="头像" />
+			android:text="@string/avatar" />
 		<ImageView android:id="@+id/avatar_arrow"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
@@ -31,10 +31,9 @@
 			android:background="@drawable/shape_circle_gray_3dp"
 		/>
 	</RelativeLayout>
-	<View android:layout_width="match_parent"
-		android:layout_height="0.5dp"
+	<View style="@style/Divider.Horizontal"
 		android:layout_marginLeft="@dimen/horizontal_margin"
-		android:background="@color/gray" />
+	/>
 	
 	<RelativeLayout
 		android:layout_width="match_parent"
@@ -56,10 +55,9 @@
 			android:text="测试"
 		/>
 	</RelativeLayout>
-	<View android:layout_width="match_parent"
-		android:layout_height="0.5dp"
+	<View style="@style/Divider.Horizontal"
 		android:layout_marginLeft="@dimen/horizontal_margin"
-		android:background="@color/gray" />
+	/>
 	
 	<RelativeLayout
 		android:layout_width="match_parent"
@@ -86,10 +84,9 @@
 			android:text="13088881234"
 		/>
 	</RelativeLayout>
-	<View android:layout_width="match_parent"
-		android:layout_height="0.5dp"
+	<View style="@style/Divider.Horizontal"
 		android:layout_marginLeft="@dimen/horizontal_margin"
-		android:background="@color/gray" />
+	/>
 	
 	<RelativeLayout
 		android:layout_width="match_parent"
@@ -116,10 +113,9 @@
 			android:text="测试测试测试"
 		/>
 	</RelativeLayout>
-	<View android:layout_width="match_parent"
-		android:layout_height="0.5dp"
+	<View style="@style/Divider.Horizontal"
 		android:layout_marginLeft="@dimen/horizontal_margin"
-		android:background="@color/gray" />
+	/>
 	
 	<RelativeLayout
 		android:layout_width="match_parent"
@@ -146,10 +142,9 @@
 			android:text="测试测试测试2"
 		/>
 	</RelativeLayout>
-	<View android:layout_width="match_parent"
-		android:layout_height="0.5dp"
+	<View style="@style/Divider.Horizontal"
 		android:layout_marginLeft="@dimen/horizontal_margin"
-		android:background="@color/gray" />
+	/>
 	
 	<RelativeLayout
 		android:layout_width="match_parent"
@@ -177,9 +172,8 @@
 			android:text="已审核"
 		/>
 	</RelativeLayout>
-	<View android:layout_width="match_parent"
-		android:layout_height="0.5dp"
+	<View style="@style/Divider.Horizontal"
 		android:layout_marginLeft="@dimen/horizontal_margin"
-		android:background="@color/gray" />
+	/>
 
 </LinearLayout>

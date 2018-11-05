@@ -27,10 +27,5 @@ public class DepositActivity extends BaseTitleActivity {
 
 	}
 
-	@Override
-	protected void onClickTitleLeft() {
-
-		super.onClickTitleLeft();
-	}
 
 }

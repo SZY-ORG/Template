@@ -41,12 +41,6 @@ public class ModifyPasswordActivity extends BaseTitleActivity {
 
 	}
 
-	@Override
-	protected void onClickTitleLeft() {
-
-		super.onClickTitleLeft();
-	}
-
 	@OnClick({R.id.submit})
 	protected void onClick(View view) {
 		if (!ClickUtil.isValid()) {
