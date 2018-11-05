@@ -11,6 +11,7 @@ import com.shizy.template.common.view.activity.BaseTitleActivity;
  * 个人信息列表页
  *
  * @author dahu
+ * @deprecated
  * time 2018/10/25 10:16.
  */
 public class PersonalInfoActivity extends BaseTitleActivity {

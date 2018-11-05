@@ -27,7 +27,7 @@ public class PersonalFragment extends BaseTitleFragment {
 
 	}
 
-	@OnClick({R.id.img_avatar,R.id.finance_info, R.id.modify_password,
+	@OnClick({R.id.img_avatar, R.id.finance_info, R.id.modify_password,
 			R.id.my_vehicle, R.id.authentication})
 	protected void onClick(View view) {
 		if (!ClickUtil.isValid()) {
