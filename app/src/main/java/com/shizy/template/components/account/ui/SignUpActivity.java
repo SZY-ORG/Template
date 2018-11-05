@@ -77,8 +77,8 @@ public class SignUpActivity extends BaseTitleActivity {
 
 	private void initAgreement() {
 		String content = getString(R.string.sign_up_driver_agreement);
-		int start = content.indexOf("《") + 1;
-		int end = content.indexOf("》");
+		int start = content.indexOf("《");
+		int end = content.indexOf("》") + 1;
 
 		SpannableString ss = new SpannableString(content);
 		ss.setSpan(new NoUnderlineClickableSpan() {
