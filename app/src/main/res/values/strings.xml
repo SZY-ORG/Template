@@ -34,6 +34,7 @@
 	<string name="input_mobile">请输入手机号</string>
 	<string name="input_password">请输入密码</string>
 	<string name="forget_password">忘记密码？</string>
+	<string name="msg_forget_password">忘记密码请联系：\n12345678901</string>
 	<string name="error_mobile_empty">手机号不能为空</string>
 	<string name="error_mobile_format">手机号格式错误</string>
 	<string name="error_password_empty">密码不能为空</string>
@@ -47,7 +48,9 @@
 	<string name="driver_agreement">司机协议</string>
 	<string name="sign_up_driver_agreement">点击“注册”即代表同意《司机协议》</string>
 	<string name="error_name_empty">姓名不能为空</string>
+	<string name="error_name_format">姓名格式错误</string>
 	<string name="error_repeat_password">两次输入密码不一致</string>
+	<string name="error_residential_city">请选择居住城市</string>
 	
 	<string name="perfect_info_statement">以下信息仅用于资质审核，绝不外泄！</string>
 	<string name="basic_info">基本信息</string>
