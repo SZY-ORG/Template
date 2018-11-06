@@ -15,6 +15,7 @@ import com.shizy.template.common.utils.NetUtil;
 import com.shizy.template.common.utils.PermissionUtil;
 import com.shizy.template.common.view.activity.BaseActivity;
 import com.shizy.template.components.account.ui.LoginActivity;
+import com.shizy.template.components.account.ui.PerfectInfoActivity;
 import com.shizy.template.net.RetrofitHelper;
 
 import java.util.ArrayList;
@@ -85,7 +86,7 @@ public class LauncherActivity extends BaseActivity {
 	}
 
 	private void toLogin() {
-		startActivity(new Intent(LauncherActivity.this, LoginActivity.class));
+		startActivity(new Intent(LauncherActivity.this, PerfectInfoActivity.class));
 		finish();
 	}
 
