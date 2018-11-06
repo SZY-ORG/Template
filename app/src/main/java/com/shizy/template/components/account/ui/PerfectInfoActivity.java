@@ -3,6 +3,7 @@ package com.shizy.template.components.account.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.SparseArray;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -50,21 +51,29 @@ public class PerfectInfoActivity extends BaseTitleActivity {
 	@BindView(R.id.btn_submit)
 	protected Button mSubmitBtn;
 
+	private SparseArray<String> mUrls = new SparseArray<>();
+
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 		if (resultCode == RESULT_OK) {
+			String url = data.getStringExtra(AppConstant.EXT_DATA);
+			mUrls.put(requestCode, url);
 			switch (requestCode) {
 				case RC_AVATAR:
+					setAvatarUrl(url);
 					break;
 				case RC_ID_FRONT:
-					ImageLoader.load(this, data.getStringExtra(AppConstant.EXT_DATA), mIdCardFrontIv);
+					setImageUrl(mIdCardFrontIv, url);
 					break;
 				case RC_ID_BACK:
+					setImageUrl(mIdCardBackIv, url);
 					break;
 				case RC_ID_IN_HAND:
+					setImageUrl(mIdCardInHandIv, url);
 					break;
 				case RC_DRIVER_LICENSE:
+					setImageUrl(mDriverLicensePhotoIv, url);
 					break;
 			}
 		}
@@ -76,7 +85,13 @@ public class PerfectInfoActivity extends BaseTitleActivity {
 		setContentView(R.layout.activity_perfect_info);
 
 		setTitle(R.string.driver_join);
+		setRightText(R.string.skip);
+	}
 
+	@Override
+	protected void onClickTitleRight() {
+		super.onClickTitleRight();
+		finish();
 	}
 
 	@OnClick({R.id.iv_avatar, R.id.tv_id_period, R.id.tv_driver_license_period, R.id.tv_vehicle_permitted,
@@ -122,6 +137,16 @@ public class PerfectInfoActivity extends BaseTitleActivity {
 			uploadFolder = AppConstant.UPLOAD_FOLDER_AVATAR;
 		}
 		PickPhotoActivity.launchForResult(this, uploadFolder, cropSize, cropSize, code);
+	}
+
+	private void setAvatarUrl(String url) {
+		ImageLoader.Option option = ImageLoader.Option.create();
+		option.setCircleCrop(true);
+		ImageLoader.load(this, url, mAvatarIv, option);
+	}
+
+	private void setImageUrl(ImageView imageView, String url) {
+		ImageLoader.load(this, url, imageView);
 	}
 
 	private void attemptSubmit() {

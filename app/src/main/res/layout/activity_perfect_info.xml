@@ -59,7 +59,7 @@
 					android:layout_height="45dp"
 					android:layout_gravity="right|center_vertical"
 					android:layout_marginRight="16dp"
-					android:background="@color/colorPrimary" />
+					android:src="@drawable/avatar_default" />
 			</FrameLayout>
 
 			<View style="@style/Divider.Horizontal" />

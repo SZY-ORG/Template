@@ -23,7 +23,8 @@
 	<string name="save">保存</string>
 	<string name="close">关闭</string>
 	<string name="download">下载</string>
-	
+	<string name="skip">跳过</string>
+
 	<!-- DEBUG MODE -->
 	<string name="server_dev">Dev</string>
 	<string name="server_master">Master</string>
