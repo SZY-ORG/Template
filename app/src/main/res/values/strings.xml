@@ -64,11 +64,17 @@
 	<string name="driver_license_number">驾驶证号</string>
 	<string name="driver_license_period">驾驶证有效期</string>
 	<string name="vehicle_permitted">准驾车型</string>
+	<string name="hint_avatar_photo">请上传头像照片</string>
 	<string name="hint_id_number">请输入身份证号</string>
+	<string name="error_id_number_format">身份证号码格式错误</string>
 	<string name="hint_id_period">请选择身份证有效期</string>
 	<string name="hint_driver_license_number">请输入驾驶证号</string>
 	<string name="hint_driver_license_period">请选择驾驶证有效期</string>
 	<string name="hint_vehicle_permitted">请选择准驾车型</string>
+	<string name="hint_id_card_front_photo">请上传身份证—头像面照片</string>
+	<string name="hint_id_card_back_photo">请上传身份证—国微面照片</string>
+	<string name="hint_id_card_in_hand_photo">请上传手持身份证照片</string>
+	<string name="hint_driver_license_photo">请上传驾驶证照片</string>
 	<string name="credentials_info">证件信息</string>
 	<string name="tips_credentials_info">提示：请保证证件清晰完整</string>
 	<string name="id_card_front">身份证—头像面</string>

@@ -4,21 +4,26 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.util.SparseArray;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
 import com.bigkoo.pickerview.builder.TimePickerBuilder;
 import com.bigkoo.pickerview.listener.CustomListener;
+import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
 import com.bigkoo.pickerview.listener.OnTimeSelectListener;
 import com.bigkoo.pickerview.view.BasePickerView;
+import com.bigkoo.pickerview.view.OptionsPickerView;
 import com.bigkoo.pickerview.view.TimePickerView;
 import com.shizy.template.R;
 import com.shizy.template.common.constant.AppConstant;
@@ -26,11 +31,15 @@ import com.shizy.template.common.utils.ClickUtil;
 import com.shizy.template.common.utils.DateUtil;
 import com.shizy.template.common.utils.ImageLoader;
 import com.shizy.template.common.utils.UIUtil;
+import com.shizy.template.common.utils.VerifyUtil;
 import com.shizy.template.common.view.activity.BaseTitleActivity;
+import com.shizy.template.components.account.bean.VehicleType;
 import com.shizy.template.components.common.ui.PickPhotoActivity;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -92,6 +101,7 @@ public class PerfectInfoActivity extends BaseTitleActivity {
 
 	private SparseArray<String> mUrls = new SparseArray<>();
 
+	private List<VehicleType> mVehicleTypes;
 	private TimePickerView mTimePickerView;
 
 	@Override
@@ -127,12 +137,22 @@ public class PerfectInfoActivity extends BaseTitleActivity {
 
 		setTitle(R.string.driver_join);
 		setRightText(R.string.skip);
+
+		initData();
 	}
 
 	@Override
 	protected void onClickTitleRight() {
 		super.onClickTitleRight();
 		finish();
+	}
+
+	private void initData() {
+		String[] array = getResources().getStringArray(R.array.vehicle_permitted);
+		mVehicleTypes = new ArrayList<>(array.length);
+		for (int i = 0; i < array.length; i++) {
+			mVehicleTypes.add(new VehicleType(array[i]));
+		}
 	}
 
 	@OnClick({R.id.iv_avatar, R.id.tv_id_period, R.id.tv_driver_license_period, R.id.tv_vehicle_permitted,
@@ -153,6 +173,7 @@ public class PerfectInfoActivity extends BaseTitleActivity {
 				showPeriodDialog(view.getId());
 				break;
 			case R.id.tv_vehicle_permitted:
+				showVehiclePermittedDialog();
 				break;
 			case R.id.iv_id_card_front:
 				pickPhoto(RC_ID_FRONT);
@@ -233,9 +254,29 @@ public class PerfectInfoActivity extends BaseTitleActivity {
 			Window window = dialog.getWindow();
 			if (window != null) {
 				window.setWindowAnimations(com.bigkoo.pickerview.R.style.picker_view_slide_anim);//修改动画样式
-				window.setGravity(Gravity.BOTTOM);//改成Bottom,底部显示
+				WindowManager.LayoutParams windowParams = window.getAttributes();
+				windowParams.width = WindowManager.LayoutParams.MATCH_PARENT;
+				windowParams.gravity = Gravity.BOTTOM;
+				window.setAttributes(windowParams);
 			}
 		}
+	}
+
+	private void showVehiclePermittedDialog() {
+		OptionsPickerView pickerView = new OptionsPickerBuilder(this, new OnOptionsSelectListener() {
+			@Override
+			public void onOptionsSelect(int options1, int options2, int options3, View v) {
+				mVehiclePermittedTv.setText(mVehicleTypes.get(options1).getPickerViewText());
+			}
+		})
+				.setTitleText(getString(R.string.permit_vehicle_type))
+				.isDialog(true)
+				.build();
+
+
+		pickerView.setNPicker(mVehicleTypes, null, null);
+		setPickerDialogParams(pickerView);
+		pickerView.show();
 	}
 
 	private void setAvatarUrl(String url) {
@@ -249,6 +290,66 @@ public class PerfectInfoActivity extends BaseTitleActivity {
 	}
 
 	private void attemptSubmit() {
+		String avatarUrl = mUrls.get(RC_AVATAR);
+		String idNumber = mIdNumberEdit.getText().toString().trim();
+		String idPeriod = mIdPeriodTv.getText().toString().trim();
+		String driverLicenseNumber = mDriverLicenseNumberEdit.getText().toString().trim();
+		String driverLicensePeriod = mDriverLicensePeriodTv.getText().toString().trim();
+		String vehiclePermitted = mVehiclePermittedTv.getText().toString().trim();
+		String idCardFrontUrl = mUrls.get(RC_ID_FRONT);
+		String idCardBackUrl = mUrls.get(RC_ID_BACK);
+		String idCardInHandUrl = mUrls.get(RC_ID_IN_HAND);
+		String driverLicenseUrl = mUrls.get(RC_DRIVER_LICENSE);
+
+		if (TextUtils.isEmpty(avatarUrl)) {
+			UIUtil.showToast(R.string.hint_avatar_photo);
+			return;
+		}
+		if (TextUtils.isEmpty(idNumber)) {
+			UIUtil.showToast(R.string.hint_id_number);
+			return;
+		}
+		if (!VerifyUtil.isIdNumber(idNumber)) {
+			UIUtil.showToast(R.string.error_id_number_format);
+			return;
+		}
+		if (TextUtils.isEmpty(idPeriod)) {
+			UIUtil.showToast(R.string.hint_id_period);
+			return;
+		}
+		if (TextUtils.isEmpty(driverLicenseNumber)) {
+			UIUtil.showToast(R.string.hint_driver_license_number);
+			return;
+		}
+		if (TextUtils.isEmpty(driverLicensePeriod)) {
+			UIUtil.showToast(R.string.hint_driver_license_period);
+			return;
+		}
+		if (TextUtils.isEmpty(vehiclePermitted)) {
+			UIUtil.showToast(R.string.hint_vehicle_permitted);
+			return;
+		}
+		if (TextUtils.isEmpty(idCardFrontUrl)) {
+			UIUtil.showToast(R.string.hint_id_card_front_photo);
+			return;
+		}
+		if (TextUtils.isEmpty(idCardBackUrl)) {
+			UIUtil.showToast(R.string.hint_id_card_back_photo);
+			return;
+		}
+		if (TextUtils.isEmpty(idCardInHandUrl)) {
+			UIUtil.showToast(R.string.hint_id_card_in_hand_photo);
+			return;
+		}
+		if (TextUtils.isEmpty(driverLicenseUrl)) {
+			UIUtil.showToast(R.string.hint_driver_license_photo);
+			return;
+		}
+
+		submit();
+	}
+
+	private void submit() {
 
 	}
 
