@@ -4,12 +4,15 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
 public class AppUtil {
 
 	private static Context mContext;
+	private static Handler sMainHandler;
 
 	private AppUtil() {
 	}
@@ -19,6 +22,17 @@ public class AppUtil {
 			throw new NullPointerException("Context is null");
 		}
 		mContext = context.getApplicationContext();
+	}
+
+	public static Handler getMainHandler() {
+		if (sMainHandler == null) {
+			synchronized (AppUtil.class) {
+				if (sMainHandler == null) {
+					sMainHandler = new Handler(Looper.getMainLooper());
+				}
+			}
+		}
+		return sMainHandler;
 	}
 
 	public static Context getContext() {

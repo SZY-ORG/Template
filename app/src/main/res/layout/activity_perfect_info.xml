@@ -11,8 +11,8 @@
 		android:layout_height="45dp"
 		android:background="#fdf9ed"
 		android:gravity="center_vertical"
-		android:paddingLeft="@dimen/horizontal_margin"
-		android:paddingRight="@dimen/horizontal_margin"
+		android:paddingLeft="24dp"
+		android:paddingRight="24dp"
 		android:text="@string/perfect_info_statement" />
 
 	<ScrollView
@@ -30,17 +30,22 @@
 				android:id="@+id/tv_basic_info"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:layout_marginTop="10dp"
-				android:text="@string/basic_info" />
+				android:paddingTop="10dp"
+				android:paddingBottom="10dp"
+				android:text="@string/basic_info"
+				android:textColor="#333333"
+				android:textSize="20dp" />
 
 			<FrameLayout
 				android:id="@+id/layout_avatar"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:orientation="horizontal"
-				android:paddingRight="@dimen/horizontal_margin">
+				android:paddingRight="@dimen/horizontal_margin"
+				android:paddingBottom="8dp">
 
 				<TextView
+					style="@style/PerfectInfoItemLabel"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:layout_gravity="center_vertical"
@@ -54,7 +59,7 @@
 					android:layout_height="45dp"
 					android:layout_gravity="right|center_vertical"
 					android:layout_marginRight="16dp"
-					android:background="@color/colorPrimary" />
+					android:src="@drawable/avatar_default" />
 			</FrameLayout>
 
 			<View style="@style/Divider.Horizontal" />
@@ -137,13 +142,27 @@
 			<TextView
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:layout_marginTop="10dp"
-				android:layout_marginBottom="10dp"
-				android:text="@string/credentials_info" />
+				android:paddingTop="10dp"
+				android:paddingBottom="10dp"
+				android:text="@string/credentials_info"
+				android:textColor="#333333"
+				android:textSize="20dp" />
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="32dp"
+				android:layout_marginRight="@dimen/horizontal_margin"
+				android:background="@drawable/bg_credentials_info_tips"
+				android:gravity="center_vertical"
+				android:paddingLeft="12dp"
+				android:text="@string/tips_credentials_info"
+				android:textColor="#333333"
+				android:textSize="14dp" />
 
 			<android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
+				android:layout_marginTop="16dp"
 				android:paddingRight="@dimen/horizontal_margin">
 
 				<android.support.constraint.Guideline
@@ -155,8 +174,7 @@
 
 				<TextView
 					android:id="@+id/tv_id_card_front"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
+					style="@style/PerfectInfoItemPhotoLabel"
 					android:text="@string/id_card_front" />
 
 				<ImageView
@@ -164,14 +182,14 @@
 					style="@style/PerfectInfoItemPhoto"
 					android:layout_marginTop="10dp"
 					android:layout_marginRight="8dp"
+					android:background="@drawable/sample_id_card_front"
 					app:layout_constraintLeft_toLeftOf="parent"
 					app:layout_constraintRight_toLeftOf="@id/guideline_vertical"
 					app:layout_constraintTop_toBottomOf="@id/tv_id_card_front" />
 
 				<TextView
 					android:id="@+id/tv_id_card_back"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
+					style="@style/PerfectInfoItemPhotoLabel"
 					android:layout_marginLeft="8dp"
 					android:text="@string/id_card_back"
 					app:layout_constraintLeft_toRightOf="@id/guideline_vertical" />
@@ -179,14 +197,14 @@
 				<ImageView
 					android:id="@+id/iv_id_card_back"
 					style="@style/PerfectInfoItemPhoto"
+					android:background="@drawable/sample_id_card_back"
 					app:layout_constraintLeft_toLeftOf="@id/tv_id_card_back"
 					app:layout_constraintRight_toRightOf="parent"
 					app:layout_constraintTop_toTopOf="@id/iv_id_card_front" />
 
 				<TextView
 					android:id="@+id/tv_id_card_in_hand"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
+					style="@style/PerfectInfoItemPhotoLabel"
 					android:layout_marginTop="10dp"
 					android:text="@string/id_card_in_hand"
 					app:layout_constraintTop_toBottomOf="@id/iv_id_card_front" />
@@ -195,14 +213,14 @@
 					android:id="@+id/iv_id_card_in_hand"
 					style="@style/PerfectInfoItemPhoto"
 					android:layout_marginTop="10dp"
+					android:background="@drawable/sample_id_card_in_hand"
 					app:layout_constraintLeft_toLeftOf="parent"
 					app:layout_constraintRight_toRightOf="@id/iv_id_card_front"
 					app:layout_constraintTop_toBottomOf="@+id/tv_id_card_in_hand" />
 
 				<TextView
 					android:id="@+id/tv_driver_license_photo"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
+					style="@style/PerfectInfoItemPhotoLabel"
 					android:layout_marginTop="10dp"
 					android:text="@string/driver_license_photo"
 					app:layout_constraintLeft_toLeftOf="@id/iv_id_card_back"
@@ -211,6 +229,7 @@
 				<ImageView
 					android:id="@+id/iv_driver_license_photo"
 					style="@style/PerfectInfoItemPhoto"
+					android:background="@drawable/sample_driver_license"
 					app:layout_constraintLeft_toLeftOf="@id/iv_id_card_back"
 					app:layout_constraintRight_toRightOf="parent"
 					app:layout_constraintTop_toTopOf="@id/iv_id_card_in_hand" />
@@ -219,9 +238,10 @@
 
 			<Button
 				android:id="@+id/btn_submit"
+				style="@style/SingleRoundedBtn"
 				android:layout_width="match_parent"
 				android:layout_height="50dp"
-				android:layout_marginTop="20dp"
+				android:layout_marginTop="35dp"
 				android:layout_marginRight="@dimen/horizontal_margin"
 				android:layout_marginBottom="20dp"
 				android:text="@string/confirm_to_submit" />

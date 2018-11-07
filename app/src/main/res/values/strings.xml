@@ -2,6 +2,8 @@
 	<string name="app_name">Template</string>
 	<string name="product_advertising">加入城配，接单赚钱</string>
 	<string name="loading">加载中…</string>
+	<string name="handling">处理中，请等待…</string>
+	<string name="upload_success">上传成功</string>
 	<string name="no_more_data">没有更多数据了</string>
 	<string name="load_finished">加载完成</string>
 	<string name="permission_denied">应用缺少必要的权限，无法使用！</string>
@@ -21,7 +23,8 @@
 	<string name="save">保存</string>
 	<string name="close">关闭</string>
 	<string name="download">下载</string>
-	
+	<string name="skip">跳过</string>
+
 	<!-- DEBUG MODE -->
 	<string name="server_dev">Dev</string>
 	<string name="server_master">Master</string>
@@ -51,7 +54,8 @@
 	<string name="error_name_format">姓名格式错误</string>
 	<string name="error_repeat_password">两次输入密码不一致</string>
 	<string name="error_residential_city">请选择居住城市</string>
-	
+
+	<string name="driver_join">司机加盟</string>
 	<string name="perfect_info_statement">以下信息仅用于资质审核，绝不外泄！</string>
 	<string name="basic_info">基本信息</string>
 	<string name="avatar">头像</string>
@@ -60,18 +64,33 @@
 	<string name="driver_license_number">驾驶证号</string>
 	<string name="driver_license_period">驾驶证有效期</string>
 	<string name="vehicle_permitted">准驾车型</string>
+	<string name="hint_avatar_photo">请上传头像照片</string>
 	<string name="hint_id_number">请输入身份证号</string>
+	<string name="error_id_number_format">身份证号码格式错误</string>
 	<string name="hint_id_period">请选择身份证有效期</string>
 	<string name="hint_driver_license_number">请输入驾驶证号</string>
 	<string name="hint_driver_license_period">请选择驾驶证有效期</string>
 	<string name="hint_vehicle_permitted">请选择准驾车型</string>
+	<string name="hint_id_card_front_photo">请上传身份证—头像面照片</string>
+	<string name="hint_id_card_back_photo">请上传身份证—国微面照片</string>
+	<string name="hint_id_card_in_hand_photo">请上传手持身份证照片</string>
+	<string name="hint_driver_license_photo">请上传驾驶证照片</string>
 	<string name="credentials_info">证件信息</string>
+	<string name="tips_credentials_info">提示：请保证证件清晰完整</string>
 	<string name="id_card_front">身份证—头像面</string>
 	<string name="id_card_back">身份证—国微面</string>
 	<string name="id_card_in_hand">手持身份证</string>
 	<string name="driver_license_photo">驾驶证照片</string>
 	<string name="confirm_to_submit">确认提交</string>
-	
+	<string name="long_term">长期</string>
+
+	<string name="take_picture">拍照</string>
+	<string name="choose_from_album">从相册选择</string>
+	<string name="capture_failed">拍照失败，请重试！</string>
+	<string name="pick_photo_failed">选择图片失败，请重试！</string>
+	<string name="crop_photo_failed">裁剪图片失败，请重试！</string>
+	<string name="compress_photo_failed">压缩图片失败，请重试！</string>
+
 	<string name="total_mileage">总里程</string>
 	<string name="estimate_time">预计耗时</string>
 	<string name="car_model">车型</string>

@@ -1,7 +1,6 @@
 package com.shizy.template.common.utils;
 
 import android.content.Context;
-import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.StringRes;
 import android.view.View;
@@ -68,7 +67,7 @@ public class UIUtil {
 		if (isRunInMainThread()) {
 			run.run();
 		} else {
-			new Handler().post(run);
+			AppUtil.getMainHandler().post(run);
 		}
 	}
 
