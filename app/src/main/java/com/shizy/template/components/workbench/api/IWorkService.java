@@ -11,6 +11,6 @@ import retrofit2.http.Query;
 public interface IWorkService {
 
 	@GET("api/task/list.json")
-	Observable<ResponseData<Pagination<Task>>> getTaskList(@Query("timestamp") String timestamp);
+	Observable<ResponseData<Pagination<Task>>> getArrangementList(@Query("timestamp") String timestamp);
 
 }

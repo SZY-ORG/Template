@@ -97,7 +97,8 @@ dependencies {
 	implementation 'com.jcodecraeer:xrecyclerview:1.5.9'
 
 	implementation 'com.amap.api:navi-3dmap:6.4.0_3dmap6.5.0'
-	implementation 'com.amap.api:location:4.1.0'
+	implementation 'com.amap.api:location:4.2.0'
+	implementation "com.amap.api:search:6.5.0"
 
 	implementation 'com.j256.ormlite:ormlite-core:5.1'
 	implementation 'com.j256.ormlite:ormlite-android:5.1'

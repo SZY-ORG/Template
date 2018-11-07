@@ -1,8 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent">
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+	
+	<include android:id="@+id/title_view"
+		layout="@layout/common_title" />
+	
+	<FrameLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+		
+		<com.amap.api.maps.MapView
+			android:id="@+id/map"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent" />
+		
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:visibility="gone">
+			
+			<Button
+				android:id="@+id/traffic"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_weight="0.5"
+				android:text="traffic" />
+			
+			<Button
+				android:id="@+id/my_location"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_weight="0.5"
+				android:text="reset" />
+		</LinearLayout>
+	</FrameLayout>
 
-	<include layout="@layout/common_title" />
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
