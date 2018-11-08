@@ -10,7 +10,7 @@ public class ServiceFactory {
 	private static HashMap<String, Object> sServiceMap = new HashMap<>();
 
 	public static <S> S getService(Class<S> clazz) {
-		String key = clazz.getSimpleName();
+		String key = clazz.getName();
 		S service = null;
 		if (sServiceMap.containsKey(key)) {
 			service = (S) sServiceMap.get(key);
